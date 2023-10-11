@@ -15,7 +15,10 @@ HEADER		= Contact.hpp PhoneBook.hpp
 all: $(NAME)
 
 $(NAME): $(OBJ) $(HEADER)
-	@$(CC) $(OBJ)  -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ)  -o $(NAME)
+
+%.o: %.cpp $(HEADER)
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@$(RM) $(OBJ)

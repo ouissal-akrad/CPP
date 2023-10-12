@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/12 17:32:14 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:25:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,20 @@ int main()
 
     while (true)
     {
-        std::cout << "Please enter your command: (ADD, SEARCH, PRINT,EXIT)" << std::endl;
-        std::cin >> cmd;
+        std::cout << "Please enter your command: (ADD, SEARCH, EXIT)" << std::endl;
+        if (!std::getline(std::cin, cmd)) 
+        {
+            std::cout << "Input error" << std::endl;
+            break;
+        }
         if (cmd == "ADD")
-			phonebook.Store();
-        else if (cmd == "PRINT")
-            phonebook.Print();
+            phonebook.Store();
         else if (cmd == "SEARCH")
             phonebook.Search();
         else if (cmd == "EXIT")
             break;
         else
-            std::cout << "Sorry, our PhoneBook accepts only (ADD, SEARCH, EXIT, PRINT)" << std::endl;
+            std::cout << "Sorry, our PhoneBook accepts only (ADD, SEARCH, EXIT)" << std::endl;
     }
     return 0;
 }

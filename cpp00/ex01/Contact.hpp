@@ -18,6 +18,7 @@ public:
     std::string GetNickname() const;
     std::string GetPhoneNumber() const;
     std::string GetDarkestSecret() const;
+    void setFirstName(std::string f_name);
 };
 
 #endif

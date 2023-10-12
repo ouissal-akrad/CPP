@@ -6,35 +6,25 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/12 18:23:09 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/12 21:16:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-void PhoneBook::Store()
+PhoneBook::PhoneBook()
 {
-    i = 0;
-    if (i < 8)
-    {
-        data[i].AddContact();
-        i++;
-    }
+    this->i = 0;
 }
 
-void PhoneBook::Print() 
+PhoneBook::~PhoneBook(){}
+
+void PhoneBook::Store() 
 {
-    for (int index = 0; index < 8; index++) 
-    {
-        Contact contact = data[index];
-        std::cout << "Contact " << index + 1 << ":\n";
-        std::cout << "First Name: " << contact.GetFirstName() << std::endl;  // Use getters
-        std::cout << "Last Name: " << contact.GetLastName() << std::endl;    // Use getters
-        std::cout << "Nickname: " << contact.GetNickname() << std::endl;    // Use getters
-        std::cout << "Phone Number: " << contact.GetPhoneNumber() << std::endl;  // Use getters
-        std::cout << "Darkest Secret: " << contact.GetDarkestSecret() << std::endl;  // Use getters
-        std::cout << "-------------------------" << std::endl;
-    }
+    this->data[i % 8].AddContact();
+    this->i++;
+    if(i > 8)
+        i = 8;
 }
 
 void PhoneBook::DisplayContactList() {
@@ -47,9 +37,9 @@ void PhoneBook::DisplayContactList() {
         const Contact contact = data[index];
         std::cout << "  " << index + 1 << std::string(10 - std::to_string(index + 1).length(), ' ') << "|";
 
-        std::string t_fname = contact.GetFirstName().substr(0, 10);  // Use getters
-        std::string t_lname = contact.GetLastName().substr(0, 10);    // Use getters
-        std::string t_nmane = contact.GetNickname().substr(0, 10);    // Use getters
+        std::string t_fname = contact.GetFirstName().substr(0, 10);
+        std::string t_lname = contact.GetLastName().substr(0, 10);
+        std::string t_nmane = contact.GetNickname().substr(0, 10);
         if (contact.GetFirstName().length() > 10) 
             t_fname[9] = '.';
         if (contact.GetLastName().length() > 10)
@@ -63,7 +53,8 @@ void PhoneBook::DisplayContactList() {
     std::cout << "-----------------------------------------------" << std::endl;
 }
 
-void PhoneBook::Search() {
+void PhoneBook::Search() 
+{
     DisplayContactList();
     int index;
     std::cout << "Enter the index of the contact you want to display: ";
@@ -72,13 +63,12 @@ void PhoneBook::Search() {
     if (index >= 1 && index <= i) {
         const Contact contact = data[index - 1];
         std::cout << "Contact Information:" << std::endl;
-        std::cout << "First Name: " << contact.GetFirstName() << std::endl;  // Use getters
-        std::cout << "Last Name: " << contact.GetLastName() << std::endl;    // Use getters
-        std::cout << "Nickname: " << contact.GetNickname() << std::endl;    // Use getters
-        std::cout << "Phone Number: " << contact.GetPhoneNumber() << std::endl;  // Use getters
-        std::cout << "Darkest Secret: " << contact.GetDarkestSecret() << std::endl;  // Use getters
-    } else 
-    {
+        std::cout << "First Name: " << contact.GetFirstName() << std::endl;  
+        std::cout << "Last Name: " << contact.GetLastName() << std::endl;    
+        std::cout << "Nickname: " << contact.GetNickname() << std::endl;    
+        std::cout << "Phone Number: " << contact.GetPhoneNumber() << std::endl;  
+        std::cout << "Darkest Secret: " << contact.GetDarkestSecret() << std::endl;  
+    } 
+    else 
         std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
-    }
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 17:11:10 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/13 21:43:47 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main()
         if (!std::getline(std::cin, cmd)) 
         {
             std::cout << "Input error" << std::endl;
-            break;
+            exit(0);
         }
         if (cmd == "ADD")
             phonebook.Store();

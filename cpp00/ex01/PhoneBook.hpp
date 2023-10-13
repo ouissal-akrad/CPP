@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:13 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/12 19:25:46 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:22:52 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define PHONEBOOK_HPP
 
 #include"Contact.hpp"
-
+#include <iomanip>
 class PhoneBook {
 private :
     Contact data[8];
@@ -23,10 +23,8 @@ public:
     PhoneBook();
     ~PhoneBook();
     void Store();
-    void Print();
     void Search();
-     void DisplayContactList();
+    void DisplayContactList();
 };
-
 
 #endif

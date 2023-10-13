@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/12 21:16:21 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:26:05 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,36 +21,37 @@ PhoneBook::~PhoneBook(){}
 
 void PhoneBook::Store() 
 {
+    static int i = 0;
     this->data[i % 8].AddContact();
-    this->i++;
-    if(i > 8)
-        i = 8;
+    if(this->i < 8)
+        this->i++;
+    i++;
 }
 
 void PhoneBook::DisplayContactList() {
-    std::cout << "-------------------------------------------------------" << std::endl;
-    std::cout << "  Index    |  First Name  |  Last Name   |  Nickname   " << std::endl;
-    std::cout << "-------------------------------------------------------" << std::endl;
-
+    std::cout << "-------------------------------------------------" << std::endl;
+    std::cout << "   Index   |  F_Name   |  L_Name   |  Nickname   " << std::endl;
+    std::cout << "-------------------------------------------------" << std::endl;
     for (int index = 0; index < i; index++) 
     {
-        const Contact contact = data[index];
-        std::cout << "  " << index + 1 << std::string(10 - std::to_string(index + 1).length(), ' ') << "|";
+        Contact contact = data[index];
+        std::cout << "  " << std::setw(9) << index + 1 << "|";
 
-        std::string t_fname = contact.GetFirstName().substr(0, 10);
-        std::string t_lname = contact.GetLastName().substr(0, 10);
-        std::string t_nmane = contact.GetNickname().substr(0, 10);
-        if (contact.GetFirstName().length() > 10) 
-            t_fname[9] = '.';
-        if (contact.GetLastName().length() > 10)
-            t_lname[9] = '.';
-        if (contact.GetNickname().length() > 10)
-            t_nmane[9] = '.';
-        std::cout << t_fname << std::string(10 - t_fname.length(), ' ') << "|";
-        std::cout << t_lname << std::string(10 - t_lname.length(), ' ') << "|";
-        std::cout << t_nmane << std::endl;
+        std::string first_name = contact.GetFirstName();
+        std::string last_name = contact.GetLastName();
+        std::string nickname = contact.GetNickname();
+
+        if (first_name.length() > 10)
+            first_name = first_name.substr(0, 9) + ".";
+        if (last_name.length() > 10)
+            last_name = last_name.substr(0, 9) + ".";
+        if (nickname.length() > 10)
+            nickname = nickname.substr(0, 9) + ".";
+        std::cout << std::setw(10) << std::right << first_name << " |";
+        std::cout << std::setw(10) << std::right << last_name << " |";
+        std::cout << std::setw(10) << std::right << nickname << std::endl;
     }
-    std::cout << "-----------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------------------" << std::endl;
 }
 
 void PhoneBook::Search() 
@@ -59,9 +60,8 @@ void PhoneBook::Search()
     int index;
     std::cout << "Enter the index of the contact you want to display: ";
     std::cin >> index;
-
     if (index >= 1 && index <= i) {
-        const Contact contact = data[index - 1];
+        Contact contact = data[index - 1];
         std::cout << "Contact Information:" << std::endl;
         std::cout << "First Name: " << contact.GetFirstName() << std::endl;  
         std::cout << "Last Name: " << contact.GetLastName() << std::endl;    
@@ -71,4 +71,6 @@ void PhoneBook::Search()
     } 
     else 
         std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
+    std::cin.clear();
+    fflush(stdin);
 }

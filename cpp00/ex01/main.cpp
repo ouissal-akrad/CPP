@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/12 21:25:16 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:19:28 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main()
         else if (cmd == "SEARCH")
             phonebook.Search();
         else if (cmd == "EXIT")
-            break;
+            exit(0);
         else
             std::cout << "Sorry, our PhoneBook accepts only (ADD, SEARCH, EXIT)" << std::endl;
     }

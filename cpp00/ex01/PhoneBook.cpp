@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 16:45:10 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/13 16:55:12 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void PhoneBook::DisplayContactList() {
         std::cout << std::setw(10) << last_name << " |";
         std::cout << std::setw(10) << nickname << std::endl;
     }
-    std::cout << "-------------------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------------" << std::endl;
 }
 
 void PhoneBook::Search() 

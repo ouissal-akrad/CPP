@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/13 22:01:37 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 22:01:38 by ouakrad          ###   ########.fr       */
+/*   Created: 2023/10/14 19:46:44 by ouakrad           #+#    #+#             */
+/*   Updated: 2023/10/14 21:02:22 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Weapon.hpp"
 
-int main(int ac, char **av)
+Weapon::Weapon(std::string Type)
 {
-	if (ac < 2)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		for (int i = 1; i < ac; i++)
-		{
-			std::string arg = av[i]; 
-			for (size_t j = 0; j < arg.length(); j++)
-				arg[j] = std::toupper(arg[j]); 
-			std::cout << arg;
-		}
-		std::cout << std::endl;
-	}
-	return (0);
+    type = Type;
+}
+
+std::string const &Weapon::getType()
+{
+    return(type);
+}
+
+void Weapon::setType(std::string Type)
+{
+    type = Type;
 }

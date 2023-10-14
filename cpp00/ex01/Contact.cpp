@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:01:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 22:01:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/14 22:51:40 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void Contact::AddContact()
 	std::cout << "the first name please" << std::endl;
 	while (true)
 	{
-		if (!std::getline(std::cin, this->f_name))
+		if (std::getline(std::cin, this->f_name).eof())
 		{
 			std::cout << "Failed to read input for the first name." << std::endl;
 			continue ;

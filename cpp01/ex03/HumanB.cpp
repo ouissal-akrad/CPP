@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 20:17:47 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/14 20:42:13 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 23:32:50 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void HumanB::attack()
 
 void HumanB::setWeapon(Weapon &Weapon)
 {
-    weapon = &Weapon;
+    this->weapon = &Weapon;
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 19:12:00 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/14 19:12:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 23:26:29 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
+    if (N < 0)
+        return(NULL);
     Zombie *zombie = new Zombie[N];
     for(int i = 0;i < N; i++)
     {

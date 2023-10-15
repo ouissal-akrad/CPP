@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 19:12:54 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/14 19:15:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 23:19:25 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int main()
 {
-    Zombie *zombies = zombieHorde(3, "Test");
+    Zombie *zombies = zombieHorde(5, "Test");
     delete[] zombies;
 }
 

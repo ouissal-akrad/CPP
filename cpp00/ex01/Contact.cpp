@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:01:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 20:12:02 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 23:18:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@ void Contact::AddContact()
 	while (true)
 	{
         if (!std::getline(std::cin, this->f_name))
-            exit(0);
+        {
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
 		if (!this->f_name.empty())
 			break ;
 		std::cout << "First name cannot be empty. Please enter again." << std::endl;
@@ -27,7 +31,11 @@ void Contact::AddContact()
 	while (true)
 	{
         if (!std::getline(std::cin, this->l_name))
-            exit(0);
+        {
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
 		if (!this->l_name.empty())
 			break ;
 		std::cout << "Last name cannot be empty. Please enter again." << std::endl;
@@ -36,7 +44,11 @@ void Contact::AddContact()
 	while (true)
 	{
         if (!std::getline(std::cin, this->n_name))
-            exit(0);
+        {
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
 		if (!this->n_name.empty())
 			break ;
 		std::cout << "Nickname cannot be empty. Please enter again." << std::endl;
@@ -45,7 +57,11 @@ void Contact::AddContact()
 	while (true)
 	{
          if (!std::getline(std::cin, this->darkest))
-            exit(0);
+        {
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
 		if (!this->darkest.empty())
 			break ;
 		std::cout << "Darkest cannot be empty. Please enter again." << std::endl;
@@ -54,7 +70,11 @@ void Contact::AddContact()
 	while (true)
 	{
         if (!std::getline(std::cin, this->p_number))
-            exit(0);
+        {
+            std::cin.clear();
+            clearerr(stdin);
+            std::cout << std::endl;
+        }
 		if (!this->p_number.empty())
 			break ;
 		std::cout << "Phone number cannot be empty. Please enter again." << std::endl;

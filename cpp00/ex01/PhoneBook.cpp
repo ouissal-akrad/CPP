@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 20:16:06 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 22:24:18 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void PhoneBook::Search()
     std::cout << "Enter the index of the contact you want to display: ";
     if (!std::getline(std::cin, index_str))
             exit(0);
-    std::cout << index_str << std::endl;
     if (index_str.length() == 1 )
     {
         index = index_str[0] - 48;

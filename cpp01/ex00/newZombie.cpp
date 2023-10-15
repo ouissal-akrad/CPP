@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:31:21 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 22:40:46 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 22:31:00 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Zombie* newZombie(std::string name)
 {
-    Zombie *newZombie = new(Zombie);
+    Zombie *newZombie = new Zombie;
     newZombie->setName(name);
     return (newZombie);
 }

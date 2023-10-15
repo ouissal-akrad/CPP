@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:08:52 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 22:22:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 22:32:24 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ Zombie::Zombie()
 
 Zombie::~Zombie()
 {
+    std::cout << name << ": Destructor Called" << std::endl;
 }
 
 void Zombie::setName(std::string name)

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 21:47:50 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/15 20:16:06 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,20 +57,28 @@ void PhoneBook::DisplayContactList() {
 void PhoneBook::Search() 
 {
     DisplayContactList();
+    std::string index_str;
     int index;
     std::cout << "Enter the index of the contact you want to display: ";
-    std::cin >> index;
-    if (index >= 1 && index <= i) {
-        Contact contact = data[index - 1];
-        std::cout << "Contact Information:" << std::endl;
-        std::cout << "First Name: " << contact.GetFirstName() << std::endl;  
-        std::cout << "Last Name: " << contact.GetLastName() << std::endl;    
-        std::cout << "Nickname: " << contact.GetNickname() << std::endl;    
-        std::cout << "Phone Number: " << contact.GetPhoneNumber() << std::endl;  
-        std::cout << "Darkest Secret: " << contact.GetDarkestSecret() << std::endl;  
+    if (!std::getline(std::cin, index_str))
+            exit(0);
+    std::cout << index_str << std::endl;
+    if (index_str.length() == 1 )
+    {
+        index = index_str[0] - 48;
+        if(index <= i && index > 0)
+        {
+            Contact contact = data[index - 1];
+            std::cout << "Contact Information:" << std::endl;
+            std::cout << "First Name: " << contact.GetFirstName() << std::endl;  
+            std::cout << "Last Name: " << contact.GetLastName() << std::endl;    
+            std::cout << "Nickname: " << contact.GetNickname() << std::endl;    
+            std::cout << "Phone Number: " << contact.GetPhoneNumber() << std::endl;  
+            std::cout << "Darkest Secret: " << contact.GetDarkestSecret() << std::endl;  
+        }
+        else 
+            std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
     } 
-    else 
-        std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
     std::cin.clear();
     std::fflush(stdin);
 }

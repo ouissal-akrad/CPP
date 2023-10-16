@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 22:25:41 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/16 18:05:19 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 21:25:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,10 @@
 #include <iostream>
 #include <string>
 
-
-
-int	main(int argc, char *argv[])
+int my_replace(std::string filename,std::string s1,std::string s2)
 {
 	size_t	start_pos;
 	size_t	found_pos;
-
-	if (argc != 4)
-	{
-		std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
-		return (1);
-	}
-	const std::string filename = argv[1];
-	const std::string s1 = argv[2];
-	const std::string s2 = argv[3];
-
-	if (s1.empty())
-	{
-		std::cerr << "Error: Empty string" << std::endl;
-		return (1);
-	}
-
 	std::ifstream input_file(filename);
 	if (!input_file)
 	{
@@ -68,10 +50,28 @@ int	main(int argc, char *argv[])
 		}
 		output_file << replaced_line << std::endl;
 	}
-
 	input_file.close();
 	output_file.close();
-	
-	std::cout << "Done." << std::endl;
+	return(0);
+}
+int	main(int argc, char *argv[])
+{
+
+	if (argc != 4)
+	{
+		std::cerr << "Usage: " << argv[0] << " <filename> <s1> <s2>" << std::endl;
+		return (1);
+	}
+	const std::string filename = argv[1];
+	const std::string s1 = argv[2];
+	const std::string s2 = argv[3];
+
+	if (s1.empty())
+	{
+		std::cerr << "Error: Empty string" << std::endl;
+		return (1);
+	}
+	if(!my_replace(filename,s1,s2))
+		std::cout << "Done." << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:06:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/13 22:37:53 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 19:49:51 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Zombie
 {
   private :
     std::string name;
-public:
+  public:
     Zombie();
     ~Zombie();
     void announce();

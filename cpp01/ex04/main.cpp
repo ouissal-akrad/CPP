@@ -6,13 +6,15 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 22:25:41 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/14 23:12:11 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 18:05:19 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
 #include <string>
+
+
 
 int	main(int argc, char *argv[])
 {
@@ -27,6 +29,13 @@ int	main(int argc, char *argv[])
 	const std::string filename = argv[1];
 	const std::string s1 = argv[2];
 	const std::string s2 = argv[3];
+
+	if (s1.empty())
+	{
+		std::cerr << "Error: Empty string" << std::endl;
+		return (1);
+	}
+
 	std::ifstream input_file(filename);
 	if (!input_file)
 	{
@@ -36,6 +45,7 @@ int	main(int argc, char *argv[])
 	std::ofstream output_file(filename + ".replace");
 	if (!output_file)
 	{
+		input_file.close();
 		std::cerr << "Error: Unable to create output file." << std::endl;
 		return (1);
 	}
@@ -58,6 +68,10 @@ int	main(int argc, char *argv[])
 		}
 		output_file << replaced_line << std::endl;
 	}
+
+	input_file.close();
+	output_file.close();
+	
 	std::cout << "Done." << std::endl;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 22:24:18 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:52:58 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ void PhoneBook::Store()
 }
 
 void PhoneBook::DisplayContactList() {
-    std::cout << "-------------------------------------------------" << std::endl;
-    std::cout << "   Index   |  F_Name  |  L_Name  |  Nickname   " << std::endl;
-    std::cout << "-------------------------------------------------" << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << "  Index   |  F_Name  |  L_Name  | Nickname |  " << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
     for (int index = 0; index < i; index++) 
     {
         Contact contact = data[index];
-        std::cout << "  " << std::setw(9) << index + 1 << "|";
+        std::cout << std::setw(10) << index + 1 << "|";
 
         std::string first_name = contact.GetFirstName();
         std::string last_name = contact.GetLastName();
@@ -49,9 +49,9 @@ void PhoneBook::DisplayContactList() {
             nickname = nickname.substr(0, 9) + ".";
         std::cout << std::setw(10) << first_name << "|";
         std::cout << std::setw(10) << last_name << "|";
-        std::cout << std::setw(10) << nickname << std::endl;
+        std::cout << std::setw(10) << nickname << "|" << std::endl;
     }
-    std::cout << "-------------------------------------------------" << std::endl;
+    std::cout << "--------------------------------------------" << std::endl;
 }
 
 void PhoneBook::Search() 
@@ -61,8 +61,12 @@ void PhoneBook::Search()
     int index;
     std::cout << "Enter the index of the contact you want to display: ";
     if (!std::getline(std::cin, index_str))
-            exit(0);
-    if (index_str.length() == 1 )
+    {
+        std::cin.clear();
+        std::clearerr(stdin);
+        std::cout << std::endl;
+    }
+    if (index_str.length() == 1)
     {
         index = index_str[0] - 48;
         if(index <= i && index > 0)
@@ -79,5 +83,4 @@ void PhoneBook::Search()
             std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
     } 
     std::cin.clear();
-    std::fflush(stdin);
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:41:47 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 19:01:06 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 18:02:08 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int ac , char **av)
 {
     Harl harl;
+    if(ac != 2)
+        return(0);
     for (int i = 1; i < ac; i++)
         harl.complain(av[i]);
 }

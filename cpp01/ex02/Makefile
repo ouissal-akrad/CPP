@@ -1,20 +1,27 @@
 NAME	= reference
 	
-CC		= c++
+CC			= c++
 
-FLAGS	= -Wall -Wextra -Werror -std=c++98
+FLAGS		= -Wall -Wextra -Werror -std=c++98
+
+SRC			= main.cpp\
+			
+OBJ			= $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): 
-	@ $(CC) $(FLAGS) main.cpp -o $(NAME)
+$(NAME): $(OBJ)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+
+%.o: %.cpp
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
+	@$(RM) $(OBJ)
+
+fclean: clean
 	@$(RM) $(NAME)
 
-fclean:
-	@$(RM) $(NAME)
-
-re: clean all
+re: fclean all
 
 .PHONY: all clean re

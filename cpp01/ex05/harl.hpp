@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 18:40:46 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 19:29:22 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 18:01:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class Harl
         void error();
     public:
         void complain(std::string level);
-        // typedef void (Harl::*LogFunction)();
 };
 
 #endif

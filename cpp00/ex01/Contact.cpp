@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:01:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/16 14:21:31 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 16:53:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void Contact::AddContact()
         if (!std::getline(std::cin, this->f_name))
         {
             std::cin.clear();
-            clearerr(stdin);
+            std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->f_name.empty())
@@ -33,7 +33,7 @@ void Contact::AddContact()
         if (!std::getline(std::cin, this->l_name))
         {
             std::cin.clear();
-            clearerr(stdin);
+            std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->l_name.empty())
@@ -46,7 +46,7 @@ void Contact::AddContact()
         if (!std::getline(std::cin, this->n_name))
         {
             std::cin.clear();
-            clearerr(stdin);
+            std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->n_name.empty())
@@ -59,7 +59,7 @@ void Contact::AddContact()
          if (!std::getline(std::cin, this->darkest))
         {
             std::cin.clear();
-            clearerr(stdin);
+            std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->darkest.empty())
@@ -72,7 +72,7 @@ void Contact::AddContact()
         if (!std::getline(std::cin, this->p_number))
         {
             std::cin.clear();
-            clearerr(stdin);
+            std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->p_number.empty())

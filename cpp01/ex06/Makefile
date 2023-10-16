@@ -1,4 +1,4 @@
-NAME		= Harl_Default
+NAME		= harlFilter
 	
 CC			= c++
 
@@ -26,3 +26,5 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+.PHONY: all clean re

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 17:34:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/16 16:52:58 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 20:00:55 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ void PhoneBook::Search()
         else 
             std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
     } 
+    else 
+            std::cout << "Invalid index. Please enter a valid index between 1 and " << i << "." << std::endl;
     std::cin.clear();
 }

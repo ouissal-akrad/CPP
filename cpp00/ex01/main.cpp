@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 16:58:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/15 23:15:46 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/16 20:00:34 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,4 @@ int main()
         else
             std::cout << "Sorry, our PhoneBook accepts only (ADD, SEARCH, EXIT)" << std::endl;
     }
-    return 0;
 }

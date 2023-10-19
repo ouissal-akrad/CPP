@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 22:01:24 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/16 16:53:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/17 16:04:23 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ void Contact::AddContact()
 	{
         if (!std::getline(std::cin, this->f_name))
         {
-            std::cin.clear();
-            std::clearerr(stdin);
+			
+            // std::cin.clear();
+            // std::clearerr(stdin);
             std::cout << std::endl;
         }
 		if (!this->f_name.empty())

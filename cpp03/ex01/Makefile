@@ -1,19 +1,22 @@
-NAME		= megaphone
+NAME		= ClapTrap
 	
 CC			= c++
 
 FLAGS		= -Wall -Wextra -Werror -std=c++98
 
-SRC			= megaphone.cpp\
-			
+SRC			= main.cpp\
+			ClapTrap.cpp\
+
 OBJ			= $(SRC:.cpp=.o)
+
+HEADER		= ClapTrap.hpp
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADER)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:

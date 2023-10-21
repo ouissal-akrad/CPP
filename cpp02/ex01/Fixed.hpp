@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 12:58:03 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/19 16:49:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/21 18:07:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ class Fixed
 		~Fixed();
 };
 std::ostream &operator << (std::ostream &out, const Fixed &f);
-
 #endif

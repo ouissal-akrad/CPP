@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:02:09 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/19 17:58:07 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/21 18:00:10 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed &Fixed::operator=(const Fixed &obj)
     fixed = obj.getRawBits();
     return(*this);
 }
-int Fixed :: getRawBits(void) const
+int Fixed::getRawBits(void) const
 {
 	std :: cout <<  "getRawBits member function called "<< std::endl;
 	return (this->fixed);
@@ -52,19 +52,20 @@ void Fixed::setRawBits(int const raw)
 
 Fixed::~Fixed()
 {
-	std :: cout <<  "Destructor called" << std::endl;
+	std::cout <<  "Destructor called" << std::endl;
 }
 
-float Fixed :: toFloat( void ) const
+float Fixed::toFloat(void) const
 {
-	return ((float )fixed / (1 << this->f_bits));
+	return ((float)fixed / (1 << this->f_bits));
 }
-int Fixed :: toInt( void ) const
+
+int Fixed::toInt(void) const
 {
 	return (fixed >> this->f_bits);
 }
 
-std ::ostream &operator << (std :: ostream &out, const Fixed &f)
+std ::ostream &operator<<(std::ostream &out, const Fixed &f)
 {
 	out << f.toFloat();
 	return (out);

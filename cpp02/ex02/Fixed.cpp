@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/21 18:08:47 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/22 14:01:43 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/22 14:55:29 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,11 +132,13 @@ Fixed Fixed::operator++(int)
 	fixed++;
 	return (tmp);
 }
+
 Fixed &Fixed::operator++(void)
 {
 	fixed++;
 	return (*this);
 }
+
 Fixed Fixed::operator--(int)
 {
 	Fixed	tmp;

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:02:09 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/22 14:15:59 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/22 14:37:01 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int Fixed::toInt(void) const
 	return (fixed >> this->f_bits);
 }
 
-std ::ostream &operator<<(std::ostream &out, const Fixed &f)
+std::ostream &operator<<(std::ostream &out, const Fixed &f)
 {
 	out << f.toFloat();
 	return (out);

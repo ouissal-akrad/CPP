@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FlagTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/19 18:10:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/22 18:56:05 by ouakrad          ###   ########.fr       */
+/*   Created: 2023/10/22 18:13:16 by ouakrad           #+#    #+#             */
+/*   Updated: 2023/10/22 18:53:38 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ClapTrap.hpp"
+#ifndef FRAPCLAP_HPP
+#define FRAPCLAP_HPP
 
-int main()
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    ClapTrap a("Ouissal");
-    ClapTrap b("hehe");
+	public:
+		FragTrap();
+		FragTrap(std:: string name);
+		FragTrap(const FragTrap&);
+		FragTrap operator=(const FragTrap&);
+		void highFivesGuys(void);
+		void attack(const std::string& target);
+		~FragTrap();
+};
 
-    a.attack(b.getName());
-    b.takeDamage(10);
-    b.attack(a.getName());
-    a.takeDamage(b.getAttack_damage());
-    a.beRepaired(4);
-    b.beRepaired(4);
-}
+#endif

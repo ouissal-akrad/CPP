@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:02:09 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/19 16:05:56 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/22 14:02:50 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ Fixed &Fixed::operator=(const Fixed &obj)
     fixed = obj.getRawBits();
     return(*this);
 }
+
 int Fixed :: getRawBits(void) const
 {
 	std :: cout <<  "getRawBits member function called "<< std::endl;

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 13:02:09 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/21 18:00:10 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/22 14:15:59 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Fixed::Fixed()
 }
 Fixed::Fixed(const Fixed &obj)
 {
-	this->fixed = obj.fixed;
-	std :: cout << "Copy constructor called"<< std::endl;
+    std::cout << "Copy constructor called" << std::endl;
+    *this = obj;
 }
 
 Fixed::Fixed(const int val)

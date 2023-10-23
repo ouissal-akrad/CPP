@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:50:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/19 19:25:35 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:08:13 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap :: ClapTrap(std::string name)
 	Hit_points = 10;
 	Energy_points = 10;
 	Attack_damage = 0;
-	std :: cout <<  name << " Constructor with parameters called" << std ::endl;
+	std :: cout << name << " Constructor with parameters called" << std ::endl;
 }
 
 ClapTrap :: ClapTrap(const ClapTrap &copy)
@@ -52,19 +52,19 @@ void ClapTrap::setName(std::string name)
     this->name = name;
 }
 
-std::string ClapTrap::getName()
+std::string ClapTrap::getName() const
 {
     return(this->name);
 }
-int ClapTrap::getHit_points()
+int ClapTrap::getHit_points() const
 {
     return(this->Hit_points);
 }
-int ClapTrap::getEnergy_points()
+int ClapTrap::getEnergy_points() const
 {
     return(this->Energy_points);
 }
-int ClapTrap::getAttack_damage()
+int ClapTrap::getAttack_damage() const
 {
     return(this->Attack_damage);
 }

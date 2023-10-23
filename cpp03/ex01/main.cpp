@@ -6,16 +6,16 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:10:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/22 18:56:05 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:02:34 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ClapTrap.hpp"
+#include"ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap a("Ouissal");
-    ClapTrap b("hehe");
+    ScavTrap a("Ouissal");
+    ScavTrap b("Noone");
 
     a.attack(b.getName());
     b.takeDamage(10);

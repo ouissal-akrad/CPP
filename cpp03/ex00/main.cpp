@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 18:10:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/19 18:26:59 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/23 13:20:01 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int main()
 {
     ClapTrap a("Ouissal");
-    ClapTrap b("Aissam");
+    ClapTrap b("3dnan");
 
     a.attack(b.getName());
     b.takeDamage(10);

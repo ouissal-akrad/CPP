@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:50:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/22 19:21:13 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/23 18:06:51 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ClapTrap :: ClapTrap(std::string name)
 	Hit_points = 10;
 	Energy_points = 10;
 	Attack_damage = 0;
-	std :: cout <<  name << " Constructor with parameters called" << std ::endl;
+	std :: cout <<  "ClapTrap : " << name << " Constructor with parameters called" << std ::endl;
 }
 
 ClapTrap :: ClapTrap(const ClapTrap &copy)
@@ -52,26 +52,26 @@ void ClapTrap::setName(std::string name)
     this->name = name;
 }
 
-std::string ClapTrap::getName()
+std::string ClapTrap::getName() const
 {
     return(this->name);
 }
-int ClapTrap::getHit_points()
+int ClapTrap::getHit_points() const
 {
     return(this->Hit_points);
 }
-int ClapTrap::getEnergy_points()
+int ClapTrap::getEnergy_points() const
 {
     return(this->Energy_points);
 }
-int ClapTrap::getAttack_damage()
+int ClapTrap::getAttack_damage() const
 {
     return(this->Attack_damage);
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std ::endl;
+	std::cout << "ClapTrap : Destructor called" << std ::endl;
 }
 void ClapTrap::attack(const std::string& target)
 {
@@ -85,9 +85,24 @@ void ClapTrap::attack(const std::string& target)
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (Hit_points > (int)amount)
-		Hit_points -= amount;
+	std::cout << "ClapTrap : " << this->name << " takes " << amount << " damage";
+	this->Hit_points -= amount;
+	if (this->Hit_points <= 0)
+	{
+		std::cout << "Dead!" << std::endl;
+		this->Hit_points = 0;
+	}
 	else
-		Hit_points = 0;
-	std::cout << "Loser!" <<  std::endl;
+		std::cout << "but remains standing." << std::endl;
+}
+void ClapTrap::beRepaired(unsigned int amount)
+{
+    if (Energy_points > 0 && Hit_points > 0)
+    {
+        Hit_points += amount;
+        Energy_points -= 1;
+        std::cout << "ClapTrap : " << this->name << " drinks a healing potion and restores " << amount << " HitPoints." << std::endl;
+    }
+    else
+        std::cout << "ClapTrap : " << this->name << " is unable to recover. No life or energy." << std::endl;
 }

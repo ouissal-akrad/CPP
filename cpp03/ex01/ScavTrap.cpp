@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:43:03 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/23 17:56:04 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/24 14:22:26 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,10 @@ ScavTrap::ScavTrap(const ScavTrap &obj)
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &obj)
 {
-	if (this != &obj)
-	{
-		this->name = obj.getName();
-		this->Energy_points = obj.getEnergy_points();
-		this->Hit_points = obj.getHit_points();
-		this->Attack_damage = obj.getAttack_damage();
-	}
+	this->name = obj.getName();
+	this->Energy_points = obj.getEnergy_points();
+	this->Hit_points = obj.getHit_points();
+	this->Attack_damage = obj.getAttack_damage();
 	return (*this);
 }
 
@@ -57,10 +54,13 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string &target)
 {
-	if (this->Energy_points <= 0 || this->Hit_points <= 0)
-		return ;
-	std::cout << "ScavTrap : " << this->name << " attacks " << target << ", causing " << this->Attack_damage << " points of damage!" << std::endl;
-	this->Energy_points -= 1;
+	if(Energy_points > 0 && Hit_points > 0)
+	{
+		Energy_points--;
+		std::cout << "ScavTrap : " << name << " attacks " << target << ", causing " << Attack_damage << " points of damage!" << std::endl;
+	}
+	else 
+		std :: cout << "Dead!" << std ::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount)
@@ -73,11 +73,11 @@ void ScavTrap::takeDamage(unsigned int amount)
 		this->Hit_points = 0;
 	}
 	else
-		std::cout << "but remains standing." << std::endl;
+		std::cout << " but remains standing." << std::endl;
 }
 void ScavTrap::guardGate()
 {
 	if (this->Energy_points <= 0 || this->Hit_points <= 0)
 		return ;
-	std::cout << "Keeper mode activated!" << std::endl;
+	std::cout << "ScavTrap : " <<this->name << " : unlocked the Keeper mode. Guard on!" << std::endl;
 }

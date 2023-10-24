@@ -1,4 +1,4 @@
-NAME		= FragTrap
+NAME		= FragTrap 
 	
 CC			= c++
 

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 20:43:03 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/23 17:56:04 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/24 19:42:27 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,23 +57,22 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string &target)
 {
-	if (this->Energy_points <= 0 || this->Hit_points <= 0)
-		return ;
-	std::cout << "ScavTrap : " << this->name << " attacks " << target << ", causing " << this->Attack_damage << " points of damage!" << std::endl;
-	this->Energy_points -= 1;
+	if (Energy_points > 0 && Hit_points > 0)
+	{
+		Energy_points--;
+		std::cout << "ScavTrap :" << name << " launches an attack on " << target << " and inflicts " << Attack_damage << " damage points!" << std::endl;
+	}
+	else
+		std ::cout << "No life or energy." << std ::endl;
 }
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
-	std::cout << "ScavTrap : " << this->name << " takes " << amount << " damage";
-	this->Hit_points -= amount;
-	if (this->Hit_points <= 0)
-	{
-		std::cout << "Dead!" << std::endl;
-		this->Hit_points = 0;
-	}
+	if (Hit_points > (int)amount)
+		Hit_points -= amount;
 	else
-		std::cout << "but remains standing." << std::endl;
+		Hit_points = 0;
+	std::cout << "Loser!" <<  std::endl;
 }
 void ScavTrap::guardGate()
 {

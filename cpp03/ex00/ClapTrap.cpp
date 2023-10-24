@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 17:50:58 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/23 18:08:13 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/24 18:39:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ClapTrap::ClapTrap()
 	std :: cout << "Default constructor called" << std ::endl;
 }
 
-ClapTrap :: ClapTrap(std::string name)
+ClapTrap::ClapTrap(std::string name)
 {
 	this->name = name;
 	Hit_points = 10;
@@ -29,7 +29,7 @@ ClapTrap :: ClapTrap(std::string name)
 	std :: cout << name << " Constructor with parameters called" << std ::endl;
 }
 
-ClapTrap :: ClapTrap(const ClapTrap &copy)
+ClapTrap::ClapTrap(const ClapTrap &copy)
 {
 	this->name = copy.name;
 	this->Hit_points = copy.Hit_points;
@@ -38,7 +38,7 @@ ClapTrap :: ClapTrap(const ClapTrap &copy)
 	std::cout << "Copy constructor called" << std ::endl;
 }
 
-ClapTrap& ClapTrap::operator=(const ClapTrap &claptrap)
+ClapTrap &ClapTrap::operator=(const ClapTrap &claptrap)
 {
 	this->name = claptrap.name;
 	this->Hit_points = claptrap.Hit_points;

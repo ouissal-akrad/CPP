@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:51:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/25 19:51:50 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:30:44 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Dog &Dog::operator=(const Dog &obj)
 
 void Dog::makeSound() const
 {
-    std::cout<< "Dog : Dog barks" << std::endl;
+    std::cout<< "Dog barks" << std::endl;
 }
 
 Dog::~Dog()

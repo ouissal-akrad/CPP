@@ -1,8 +1,8 @@
-NAME		= Animal
+NAME		= Interface
 	
 CC			= c++
 
-FLAGS		= -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+FLAGS		= -Wall -Wextra -Werror -std=c++98
 
 SRC			= main.cpp\
 			AMateria.cpp\

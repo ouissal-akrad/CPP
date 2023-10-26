@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:19:23 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 18:58:59 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:23:17 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void MateriaSource::learnMateria(AMateria *M)
     {
         if (!this->slots[i] && M)
         {
-            this->slots[i] = M->clone();
+            this->slots[i] = M;
             break;
         }
     }

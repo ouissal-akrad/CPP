@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 18:54:49 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:21:13 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@ Character &Character::operator=(const Character &obj)
 Character::~Character()
 {
 	std::cout << "Charachter : Destractor Called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->slots[i])
+			delete (this->slots[i]);
+	}
 }
 
 std::string const &Character::getName() const
@@ -76,7 +81,7 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (slots[i] == nullptr)
+		if (slots[i] == NULL)
 		{
 			slots[i] = m;
 			return ;

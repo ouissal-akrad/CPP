@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:39:53 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 16:55:51 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:34:24 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 AMateria::AMateria()
 {
-    std::cout << "AMateria : Default Constractor Called"<< std::endl;
+    // std::cout << "AMateria : Default Constractor Called"<< std::endl;
 }
 
 AMateria::AMateria(std::string const &type)
 {
 	this->type = type;
-    std::cout << "AMateria : Copy Constractor Called"<< std::endl;
+    // std::cout << "AMateria : Copy Constractor Called"<< std::endl;
 }
 
 AMateria::~AMateria()
 {
-    std::cout << "AMateria : Destractor Called"<< std::endl;
+    // std::cout << "AMateria : Destractor Called"<< std::endl;
 }
 AMateria::AMateria(const AMateria &obj)
 {

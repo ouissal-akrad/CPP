@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:19:23 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 20:23:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:38:17 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 		this->slots[i] = NULL;
-    std::cout << "MateriaSurce : Default Constractor Called"<< std::endl;
+    // std::cout << "MateriaSurce : Default Constractor Called"<< std::endl;
 }
 MateriaSource::MateriaSource(const MateriaSource &obj)
 {
 	*this = obj;
-    std::cout << "MateriaSurce : Copy Constractor Called"<< std::endl;
+    // std::cout << "MateriaSurce : Copy Constractor Called"<< std::endl;
 }
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &obj)

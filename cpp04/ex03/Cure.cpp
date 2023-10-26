@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:00:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 18:45:31 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 20:34:57 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 Cure::Cure()
 {
     this->type = "cure";
-    std::cout << "Cure : Default Constractor Called"<< std::endl;
+    // std::cout << "Cure : Default Constractor Called"<< std::endl;
 }
 Cure::Cure(const Cure &obj)
 {
-    std::cout << "Cure : Copy Constractor Called"<< std::endl;
+    // std::cout << "Cure : Copy Constractor Called"<< std::endl;
 	*this = obj;
 }
 Cure &Cure::operator=(const Cure &obj)
@@ -30,7 +30,7 @@ Cure &Cure::operator=(const Cure &obj)
 
 Cure::~Cure()
 {
-    std::cout << "Cure : Destractor Called" << std::endl;
+    // std::cout << "Cure : Destractor Called" << std::endl;
 }
 
 AMateria *Cure::clone() const

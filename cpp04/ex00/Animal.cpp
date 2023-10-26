@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:22:25 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/25 19:39:36 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:21:11 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Animal::Animal()
 {
+    this->type = "Animal";
     std::cout << "Animal : Default Constractor Called"<< std::endl;
 }
 

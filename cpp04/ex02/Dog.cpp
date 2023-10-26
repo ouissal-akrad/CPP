@@ -1,55 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 15:47:31 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 15:41:45 by ouakrad          ###   ########.fr       */
+/*   Created: 2023/10/25 15:51:11 by ouakrad           #+#    #+#             */
+/*   Updated: 2023/10/26 16:18:45 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Cat.hpp"
+#include"Dog.hpp"
 
-Cat::Cat()
+Dog::Dog()
 {
-    this->type = "Cat";
+    this->type = "Dog";
     this->brain = new Brain();
-    std::cout << "Cat : Default Constractor Called"<< std::endl;
+    std::cout << "Dog : Default Constractor Called"<< std::endl;
 }
 
-Cat::Cat(const Cat &copy)
+Dog::Dog(const Dog &copy)
 {
     this->type = copy.type;
     this->brain = new Brain();
-    std::cout << "Cat : Copy Constractor Called"<< std::endl;
+    std::cout << "Dog : Copy Constractor Called"<< std::endl;
 }
 
-Cat &Cat::operator=(const Cat &obj)
+Dog &Dog::operator=(const Dog &obj)
 {
     this->type = obj.type;
     this->brain = new Brain();
-    return(*this); 
+    return(*this);
 }
 
-void Cat::makeSound() const
-{
-    std::cout << "Cat meows" << std::endl;
-}
-
-Cat::~Cat()
+void Dog::makeSound() const
 {
     delete brain;
-    std::cout << "Cat : Destractor Called" << std::endl;
+    std::cout<< "Dog barks" << std::endl;
 }
 
-Brain *Cat::getBrain() const
+Dog::~Dog()
+{
+    std::cout << "Dog : Destractor Called" << std::endl;
+}
+std::string Dog::getType() const
+{
+    return(this->type);     
+}
+const Brain* Dog:: getBrain() const
 {
 	return(this->brain);
 }
-
-void Cat::setBrain(Brain brain)
+void Dog::setBrain(Brain brain)
 {
 	*this->brain = brain;
 }

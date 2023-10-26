@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:51:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/25 20:36:11 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 15:54:40 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,21 @@ Dog::Dog()
 Dog::Dog(const Dog &copy)
 {
     this->type = copy.type;
+    this->brain = new Brain();
     std::cout << "Dog : Copy Constractor Called"<< std::endl;
 }
 
 Dog &Dog::operator=(const Dog &obj)
 {
     this->type = obj.type;
-    this->brain = new Brain(*obj.brain);
+    this->brain = new Brain();
     return(*this);
 }
 
 void Dog::makeSound() const
 {
     delete brain;
-    std::cout<< "Dog : Dog barks" << std::endl;
+    std::cout<< "Dog barks" << std::endl;
 }
 
 Dog::~Dog()

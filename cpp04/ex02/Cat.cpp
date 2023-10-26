@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:47:31 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 15:41:45 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:18:54 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ Cat::~Cat()
 {
     delete brain;
     std::cout << "Cat : Destractor Called" << std::endl;
+}
+
+std::string Cat::getType() const
+{
+    return(this->type);     
 }
 
 Brain *Cat::getBrain() const

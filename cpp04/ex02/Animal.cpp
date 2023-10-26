@@ -6,51 +6,37 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:22:25 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 16:21:04 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:22:36 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"Animal.hpp"
 
-Animal::Animal()
+AAnimal::AAnimal()
 {
     this->type = "Animal";
-    std::cout << "Animal : Default Constractor Called"<< std::endl;
+    std::cout << "AAnimal : Default Constractor Called"<< std::endl;
 }
 
-Animal::Animal(std::string Type)
+AAnimal::AAnimal(std::string Type)
 {
     this->type = Type;
-    std::cout << "Animal : Constractor with parameters Called"<< std::endl;
+    std::cout << "AAnimal : Constractor with parameters Called"<< std::endl;
 }
 
-Animal::Animal(const Animal &copy)
+AAnimal::AAnimal(const AAnimal &copy)
 {
     this->type = copy.type;
-    std::cout << "Animal : Copy Constractor Called"<< std::endl;
+    std::cout << "AAnimal : Copy Constractor Called"<< std::endl;
 }
 
-Animal &Animal::operator=(const Animal &obj)
+AAnimal &AAnimal::operator=(const AAnimal &obj)
 {
     this->type = obj.type;
     return(*this);
 }
 
-std::string Animal::getType() const
+AAnimal::~AAnimal()
 {
-    return(this->type);    
-}
-
-void Animal::setType(std::string Type)
-{
-    this->type = Type;
-}
-void Animal::makeSound() const
-{
-    std::cout << "Animal : No sound!" <<std::endl;
-}
-
-Animal::~Animal()
-{
-    std::cout << "Animal : Destractor Called" << std::endl;
+    std::cout << "AAnimal : Destractor Called" << std::endl;
 }

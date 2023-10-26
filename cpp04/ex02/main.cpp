@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:35:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 15:55:22 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/26 16:09:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,13 @@
 
 int	main(void)
 {
-	const int numAnimals = 6;
-	Animal *animals[numAnimals];
-
-	for (int i = 0; i < numAnimals; ++i)
-	{
-		if (i < numAnimals / 2)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
-	}
-
-	// Use the animals
-	for (int i = 0; i < numAnimals; ++i)
-		animals[i]->makeSound();
-
-	// Delete the animals
-	for (int i = 0; i < numAnimals; ++i)
-		delete animals[i];
-
+	const AAnimal *i = new Cat();
+	const AAnimal *j = new Dog();
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound();
+	j->makeSound();
+	delete i;
+	delete j;
 	return (0);
 }

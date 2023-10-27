@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 14:35:10 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 21:07:58 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/27 15:33:41 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 #include "WrongCat.hpp"
-void	ff()
-{
-	system("leaks Animal");
-}
+
 int	main(void)
 {
-	atexit(ff);
 	const int numAnimals = 6;
 	Animal *animals[numAnimals];
 
 	for (int i = 0; i < numAnimals; ++i)
 	{
 		if (i < numAnimals / 2)
-			animals[i] = new Dog();
-		else
 			animals[i] = new Cat();
+		else
+			animals[i] = new Dog();
 	}
 
 	// Use the animals

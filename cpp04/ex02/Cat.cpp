@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:47:31 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 16:18:54 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/27 15:30:37 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,18 @@ Cat::Cat(const Cat &copy)
 {
     this->type = copy.type;
     this->brain = new Brain();
+    *(this->brain) = *copy.brain;
     std::cout << "Cat : Copy Constractor Called"<< std::endl;
 }
 
 Cat &Cat::operator=(const Cat &obj)
 {
+    if (this == &obj)
+        return *this;
+    delete brain;
     this->type = obj.type;
     this->brain = new Brain();
+    *(this->brain) = *(obj.brain);
     return(*this); 
 }
 

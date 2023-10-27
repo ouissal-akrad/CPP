@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:19:23 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 20:38:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/27 13:38:31 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &obj)
 	return (*this);
 }
 
-MateriaSource::~MateriaSource() {
+MateriaSource::~MateriaSource() 
+{
     for (int i = 0; i < 4; i++) 
     {
         if (slots[i])

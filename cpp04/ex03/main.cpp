@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 18:39:54 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/27 15:11:49 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/27 15:39:21 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,8 @@
 #include "Ice.hpp"
 #include "MateriaSource.hpp"
 
-void ff()
-{
-	system("leaks Interface");
-}
-
 int	main(void)
 {
-	atexit(ff);
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());

@@ -1,5 +1,5 @@
 .vscode
 *.o
 .gitignore
-test.c
+test.cpp
 .DS_Store

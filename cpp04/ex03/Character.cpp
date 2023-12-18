@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 17:21:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/26 20:34:44 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/10/27 17:19:42 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void Character::equip(AMateria *m)
 {
 	for (int i = 0; i < 4; i++)
 	{
+		for (int j = 0; j < 4; j++)
+			if(slots[j] == m)
+				return ;
 		if (slots[i] == NULL)
 		{
 			slots[i] = m;

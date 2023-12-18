@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 22:25:41 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/10/16 21:25:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/16 00:33:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int my_replace(std::string filename,std::string s1,std::string s2)
 		return (1);
 	}
 	std::string line;
-	while (std::getline(input_file, line))
+	while (std::getline(input_file, line,'\0'))
 	{
 		std::string replaced_line;
 		start_pos = 0;
@@ -75,3 +75,5 @@ int	main(int argc, char *argv[])
 		std::cout << "Done." << std::endl;
 	return (0);
 }
+
+// r == r\0

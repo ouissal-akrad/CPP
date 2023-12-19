@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:35:49 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/19 12:51:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:51:33 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 Intern::Intern()
 {
-	// std::cout << "Default Constractor Called"<< std::endl;
 }
 Intern::Intern(const Intern &copy)
 {
 	*this = copy;
-	// std::cout << "Copy Constractor Called"<< std::endl;
 }
 Intern &Intern::operator=(const Intern &obj)
 {
@@ -67,5 +65,4 @@ AForm *Intern::makeForm(std::string name, std::string target)
 
 Intern::~Intern()
 {
-	// std::cout << "Destractor Called"<< std::endl;
 }

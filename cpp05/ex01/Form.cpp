@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 11:07:38 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/14 14:26:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:12:49 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ Form::Form(const Form& copy):name(copy.name),grad_sign(copy.grad_sign),grad_exec
 {
     // std::cout << "Copy Constractor Called"<< std::endl;
 }
-Form &Form::operator=(const Form& a)
+Form &Form::operator=(const Form& copy)
 {
-	if (this != &a)
-		this->is_signed=a.is_signed;
+	if (this != &copy)
+		this->is_signed=copy.is_signed;
 	return(*this);
 }
 std::string Form::getName()const
@@ -51,11 +51,11 @@ bool Form::getIssigne() const
 {
 	return(this->is_signed);
 }
-const char *Form::GradeTooHighException :: what() const throw()
+const char *Form::GradeTooHighException::what() const throw()
 {
 	return("Form Grade Too High");
 }
-const char *Form::GradeTooLowException :: what() const throw()
+const char *Form::GradeTooLowException::what() const throw()
 {
 	return("Form Grade Too Low");
 }

@@ -6,24 +6,20 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 15:45:51 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/15 12:42:24 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:51:10 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm()
-	: AForm("Home", 145, 137)
-{
-	// std::cout << "ShrubberyCreationForm : Default Constructor Called" << std::endl;
-}
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const &name)
-	: AForm(name, 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm("Home", 145, 137)
 {
 }
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj)
-	: AForm(obj.getName(), obj.getGrad_execute(), obj.getGrad_sign())
+ShrubberyCreationForm::ShrubberyCreationForm(std::string const &name): AForm(name, 145, 137)
+{
+}
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj): AForm(obj.getName(), obj.getGrad_execute(), obj.getGrad_sign())
 {
 }
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm& obj) 
@@ -54,5 +50,4 @@ void ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 }
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	// std::cout << "ShrubberyCreationForm : Destructor Called" << std::endl; */
 }

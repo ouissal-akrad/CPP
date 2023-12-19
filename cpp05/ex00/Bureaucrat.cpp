@@ -6,11 +6,9 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:07:57 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/18 10:15:59 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:11:15 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include"Bureaucrat.hpp"
 
 #include"Bureaucrat.hpp"
 
@@ -25,7 +23,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat &copy)
 }
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
-    std::cout << "Copy assignment operator called " << std::endl;
+    // std::cout << "Copy assignment operator called " << std::endl;
 	if (this!=&copy)
 		this->grade = copy.grade;
 	return(*this);
@@ -33,7 +31,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 
 Bureaucrat::Bureaucrat(std::string const Name, int Grade):name(Name)
 {
-    std::cout << name << " Constructor with parameters called" << std ::endl;
+    // std::cout << name << " Constructor with parameters called" << std ::endl;
 	if (Grade <= 0)
 		throw Bureaucrat::GradeTooHighException();
 	if (Grade > 150)
@@ -84,5 +82,5 @@ std::ostream& operator<<(std::ostream& out,const Bureaucrat& a)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << "Destractor Called"<< std::endl;
+    // std::cout << "Destractor Called"<< std::endl;
 }

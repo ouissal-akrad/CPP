@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/15 12:01:57 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/18 11:48:22 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:25:34 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,15 @@
 #include <cstddef>
 #include <ctime>
 
-RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("Default", 72, 45)
-{
-	// std::cout << "RobotomyRequestForm : Default Constructor Called" << std::endl;
-}
-
-RobotomyRequestForm::RobotomyRequestForm(std::string const &name)
-	: AForm(name, 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(): AForm("Default", 72, 45)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj)
-	: AForm(obj.getName(), obj.getGrad_execute(), obj.getGrad_sign())
+RobotomyRequestForm::RobotomyRequestForm(std::string const &name): AForm(name, 72, 45)
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj): AForm(obj.getName(), obj.getGrad_execute(), obj.getGrad_sign())
 {
 }
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &obj)
@@ -50,5 +46,4 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	// std::cout << "RobotomyRequestForm : Destructor Called" << std::endl; */
 }

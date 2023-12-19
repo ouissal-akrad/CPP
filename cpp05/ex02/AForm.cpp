@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:29:39 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/15 11:00:57 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 13:15:52 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@ AForm::AForm(): name("Default"), grad_sign(1), grad_execute(1)
 	is_signed = false;
 	// std::cout << "AForm : Default Constructor Called" << std::endl;
 }
-
-AForm::~AForm()
-{
- 	//std::cout << "AForm : Destructor Called" << std::endl;
-}
-
 AForm::AForm(const AForm &obj): name(obj.name), grad_sign(obj.grad_sign), grad_execute(obj.grad_execute), is_signed(obj.is_signed)
 {
     // std::cout << "AForm: Copy Constructor Called" << std::endl;
@@ -37,9 +31,10 @@ AForm::AForm(const std::string Name, const int signe_g, const int signe_e):name(
 		throw Bureaucrat::GradeTooLowException();
 }
 
-AForm &AForm::operator=(const AForm &obj)
+AForm &AForm::operator=(const AForm &copy)
 {
-	(this != &obj) && (this->is_signed = obj.is_signed);
+	if(this!= &copy)
+		this->is_signed = copy.is_signed;
 	return (*this);
 }
 
@@ -86,4 +81,9 @@ std::ostream &operator<<(std::ostream& out,const AForm& a)
 {
 	out << "Form: " << a.getName() << ", signature grade: " << a.getGrad_sign() << ", execution grade: " << a.getGrad_execute() << std::endl;
 	return(out);
+}
+
+AForm::~AForm()
+{
+ 	//std::cout << "AForm : Destructor Called" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:07:57 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/14 11:58:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 20:55:14 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,18 @@ std ::ostream& operator<<(std::ostream& out,const Bureaucrat& a)
 	return(out);
 }
 
-void Bureaucrat::signForm(Form f)
+void Bureaucrat::signForm(Form &form)
 {
-	if (f.getIssigne())
-		std::cout << this->name << " signed " << f.getName()  << std::endl;
-	else
-		std::cout << this->name << "couldn’t sign" << f.getName() << " because they need to work harder." << std::endl;
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->name << " couldn't sign " << form.getName()
+					<< " because " << e.what() << std::endl;
+	}
 }
 
 Bureaucrat::~Bureaucrat()

@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:07:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/14 11:49:42 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 20:55:50 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ public :
 		class GradeTooLowException : public std::exception{
 			const char *what() const throw();
 		};
-	void signForm(Form);
-	
+	void signForm(Form &form);
 };
 std ::ostream& operator<<(std::ostream& ,const Bureaucrat&);
 #endif

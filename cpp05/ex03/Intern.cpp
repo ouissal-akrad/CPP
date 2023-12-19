@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:35:49 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/18 11:28:41 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/19 12:51:17 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ AForm *Intern::makeForm(std::string name, std::string target)
 	AForm	*form;
 	int		choix;
 
-	std::string str[3] = {"Robotomy request", "Shrubbery Creation",
-		"Presidential pardon"};
 	form = nullptr;
 	choix = -1;
+	std::string str[3] = {"Robotomy request", "Shrubbery Creation",
+		"Presidential pardon"};
 	for (int i = 0; i < 3; i++)
 	{
 		if (name == str[i])
@@ -44,27 +44,27 @@ AForm *Intern::makeForm(std::string name, std::string target)
 			break ;
 		}
 	}
-	if (choix == 0)
+	switch (choix)
 	{
+	case 0:
 		form = new ShrubberyCreationForm(target);
-		std::cout << "Intern creates " << form->getName() << std::endl;
-	}
-	else if (choix == 1)
-	{
+		break ;
+	case 1:
 		form = new RobotomyRequestForm(target);
-		std::cout << "Intern creates " << form->getName() << std::endl;
-	}
-	else if (choix == 2)
-	{
+		break ;
+	case 2:
 		form = new PresidentialPardonForm(target);
-		std::cout << "Intern creates " << form->getName() << std::endl;
-	}
-	else
-	{
+		break ;
+	default:
 		throw std::invalid_argument("Invalid form name");
+	}
+	if (form)
+	{
+		std::cout << "Intern creates " << form->getName() << std::endl;
 	}
 	return (form);
 }
+
 Intern::~Intern()
 {
 	// std::cout << "Destractor Called"<< std::endl;

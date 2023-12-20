@@ -6,11 +6,10 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:07:54 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/19 12:53:36 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/20 19:01:46 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
 #include "Intern.hpp"
 
 int	main(void)
@@ -50,7 +49,7 @@ int	main(void)
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << std::endl;
-	}
+	}    
 	try
 	{
 		{

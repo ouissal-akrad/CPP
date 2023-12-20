@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/16 19:35:57 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/18 10:56:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/20 19:01:48 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
+
 class Intern
 {    
     public:

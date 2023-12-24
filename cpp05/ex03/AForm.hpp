@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 14:00:44 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/14 17:48:54 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/20 21:37:34 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class AForm
 	class GradeTooLowException : public std ::exception
 	{
 		const char *what() const throw();
-	};
+	}; 
 };
 std::ostream &operator<<(std::ostream &out, const AForm &);
 #endif

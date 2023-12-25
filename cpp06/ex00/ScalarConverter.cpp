@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 14:20:39 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/24 16:55:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/25 03:22:29 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void ScalarConverter::convert(std::string &value,char **argv)
                 std::cout << "float: " << value << "f" << std::endl;
             else
                 std::cout << "float: " << value << std::endl;
-
             std::stringstream ss(value);
             ss >> std::fixed >> d;
             std::cout << "double: " << d << std::endl;

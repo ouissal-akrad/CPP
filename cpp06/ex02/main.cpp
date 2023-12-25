@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 17:10:45 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/24 20:25:05 by ouakrad          ###   ########.fr       */
+/*   Created: 2023/12/24 20:32:19 by ouakrad           #+#    #+#             */
+/*   Updated: 2023/12/24 21:42:10 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SERIALIZER_HPP
-# define SERIALIZER_HPP
+#include"Base.hpp"
 
-# include <iostream>
-
-typedef struct data
+int main() 
 {
-	int		a;
-	char	c;
-}			t_data;
-
-class Serializer
-{
-  private:
-	Serializer();
-	~Serializer();
-  public:
-	static uintptr_t serialize(t_data *ptr);
-	static t_data *deserialize(uintptr_t raw);
-};
-
-#endif
+    std::srand(static_cast<unsigned>(std::time(NULL)));
+    Base *randomInstance = generate();
+    identify(randomInstance);
+    identify(*randomInstance);
+    delete randomInstance;
+    return 0;
+}

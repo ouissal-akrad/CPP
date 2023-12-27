@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:07:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/26 23:50:53 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:04:55 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ int	main(void)
 	Array<double> array4;
 	array4 = array2;
 	std::cout << "Size of array4: " << array4.size() << std::endl;
-
 	// Test out of bounds access
 	try
 	{
@@ -48,6 +47,5 @@ int	main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
-
 	return (0);
 }

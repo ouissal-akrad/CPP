@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:06:43 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/26 23:50:28 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/27 16:05:09 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,24 +28,28 @@ Array<T>::Array(unsigned int  n)
 template <typename T>
 Array<T>::Array(const Array<T> &copy)
 {
+	(*this).array = new T[0];
 	*this = copy;
-}template <typename T>
+}
+
+template <typename T>
+Array<T>& Array<T>::operator=(const Array<T>& a)
+{
+    if (this != &a)
+    {
+        delete[] array;
+        n = a.n;
+        array = new T[n];
+        std::copy(a.array, a.array + a.n, array);
+    }
+    return *this;
+}
+template <typename T>
 T& Array<T>::operator[](unsigned int index)
 {
 	if (index >= n)
 		throw std::exception();
 	return(this->array[index]);
-}
-template <typename T>
-Array<T> &Array<T>::operator=(const Array &a)
-{
-	if(this != &a)
-	{
-		this->n = a.n;
-		this->array = new T[this->n];
-		std::copy(a.array, a.array + size(), this->array);
-	}
-	return(*this);
 }
 template <typename T>
 int Array<T>::size() const

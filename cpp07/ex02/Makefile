@@ -8,7 +8,7 @@ SRC			= main.cpp\
 
 OBJ			= $(SRC:.cpp=.o)
 
-HEADER		= Array.hpp
+HEADER		= Array.hpp Array.tpp
 
 all: $(NAME)
 

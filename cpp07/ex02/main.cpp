@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 23:07:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2023/12/27 16:04:55 by ouakrad          ###   ########.fr       */
+/*   Updated: 2023/12/28 15:25:36 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ int	main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
+	while(1);
 	return (0);
 }

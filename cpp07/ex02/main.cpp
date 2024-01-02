@@ -47,6 +47,5 @@ int	main(void)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
 	}
-	while(1);
 	return (0);
 }

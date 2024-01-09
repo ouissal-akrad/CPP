@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/02 19:12:11 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/01/02 19:56:15 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/01/09 17:06:06 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,17 @@ void Span::set_N(unsigned int n)
 }
 unsigned int Span::shortestSpan()
 {
-	unsigned int	minSpan;
-	unsigned int	span;
-
-	if (v.size() <= 1)
-		throw std::logic_error("Cannot find span with less than two numbers.");
-	std::sort(v.begin(), v.end());
-	minSpan = static_cast<unsigned int>(v[1] - v[0]);
-	for (size_t i = 2; i < v.size(); ++i)
+	int min = INT_MAX;
+	sort(v.begin(),v.end());
+	if(v.size() < 2)
+		throw std::out_of_range("Cannot find span with less than two numbers.");;
+	for (unsigned int i = 0 ;i < v.size() - 1; i++)
 	{
-		span = static_cast<unsigned int>(v[i] - v[i - 1]);
-		if (span < minSpan)
-			minSpan = span;
+		int span = abs(v[i + 1] - v[i]);
+        if (min > span)
+            min = span;
 	}
-	return (minSpan);
+	return(min);
 }
 unsigned int Span::longestSpan()
 {

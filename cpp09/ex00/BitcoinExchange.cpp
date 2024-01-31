@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/01/29 18:47:08 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/01/31 16:17:44 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ bool BitcoinExchange::isValidDateFormat(const std::string &date)
 	std::string year = newDate.substr(0, 4);
 	std::string month = newDate.substr(5, 2);
 	std::string day = newDate.substr(8, 2);
+	//here
 	if ((!std::all_of(year.begin(), year.end(), ::isdigit)) ||
 		(!std::all_of(month.begin(), month.end(), ::isdigit)) ||
 		(!std::all_of(day.begin(), day.end(), ::isdigit)))
@@ -156,26 +157,26 @@ void BitcoinExchange::check_lines(std::string line)
 		std::cout << "Error: Bad input" << std::endl;
 		exit(1);
 	}
-	suff = line.substr(0, pipe);
-	pref = line.substr(pipe + 1);
-	// std::cout << "suff ======> "<< suff << std::endl;
+	pref = line.substr(0, pipe);
+	suff = line.substr(pipe + 1);
 	// std::cout << "pref ======> "<< pref << std::endl;
-	if (!isValidDateFormat(suff))
+	// std::cout << "suff ======> "<< suff << std::endl;
+	if (!isValidDateFormat(pref))
 	{
 		std::cout << "Error: Invalid date" << std::endl;
 		exit(1);
 	}
 	isValidValue(pref);
-	std::map<std::string, std::string>::iterator it;
-	prevDate = suff;
-	it = map.find(suff);
-	while (it == map.end())
-	{
-		const std::string &currentDate = prevDate;
-		// prevDate = findTheClosest(currentDate);
-		it = map.find(prevDate);
-	}
-	std::cout << suff << " => " << pref << " = " << toDouble(it->second) * toDouble(pref) << std::endl;
+	// std::map<std::string, std::string>::iterator it;
+	// prevDate = pref;
+	// it = map.find(pref);
+	// while (it == map.end())
+	// {
+	// 	const std::string &currentDate = prevDate;
+	// 	// prevDate = findTheClosest(currentDate);
+	// 	it = map.find(prevDate);
+	// }
+	// std::cout << pref << " => " << suff << " = " << toDouble(it->second) * toDouble(suff) << std::endl;
 }
 
 void BitcoinExchange::go(std::string info)

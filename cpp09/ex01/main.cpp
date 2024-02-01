@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:45:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/01/31 18:16:44 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/01 15:48:47 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,8 @@ int main(int ac, char **av)
 
     if (ac == 2)
     {
-        while (av[i])
-        {
             str = av[i];
             std::string::size_type j = 0;
-
             while (j < str.length())
             {
                 if (isDigit(str[j]))
@@ -72,16 +69,10 @@ int main(int ac, char **av)
                 }
                 j++;
             }
-
             i++;
-        }
-
         std::cout << s.top() << std::endl;
     }
     else
-    {
         std::cout << "Invalid args" << std::endl;
-    }
-
     return 0;
 }

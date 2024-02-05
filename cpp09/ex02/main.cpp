@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
+/*   Updated: 2024/02/05 16:55:04 by ouakrad          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include"PmergeMe.hpp"
 
 int main(int argc, char **argv) {
@@ -18,12 +30,16 @@ int main(int argc, char **argv) {
         }
         sequence.push_back(num);
     }
-
+	// Check for duplicates before proceeding
+    if (hasDuplicates(sequence)) {
+        std::cout << "Error: Duplicate elements found." << std::endl;
+        return 1;
+    }
     displaySequence(sequence, "Before");
 
     // Make a copy to keep the original sequence
     std::vector<int> sequenceCopy = sequence;
-
+	
     // Perform Ford-Johnson Merge-Insertion Sort
     performSorting(sequenceCopy);
 

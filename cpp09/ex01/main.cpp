@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:45:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/01 16:30:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/06 14:23:52 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int ac, char **av)
 		}
 		if (s.size() != 1)
 		{
-			std::cout << "Error:" << std::endl;
+			std::cout << "Error" << std::endl;
 			return (1);
 		}
 		std::cout << s.top() << std::endl;

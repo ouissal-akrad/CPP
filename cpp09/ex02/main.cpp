@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/06 16:05:25 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/06 17:41:42 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,39 +21,32 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 
+	// Create a vector to store the elements
 	std::vector<int> sequence;
-	std::string arg;
-	std::stringstream ss(arg);
+	std::deque<int> sequenceDeque; // Create a deque to store the same elements
+
 	for (int i = 1; i < argc; ++i)
 	{
-		arg = argv[i];
-		std::stringstream ss(arg);
+		// Convert the argument to an integer
 		int num;
-		if (!(ss >> num) || !ss.eof())
-		{
-			std::cout << "Error: Invalid number encountered." << std::endl;
-			return (1);
-		}
+		std::stringstream(argv[i]) >> num;
+
+		// Check for negative numbers
 		if (num < 0)
 		{
 			std::cout << "Error: Negative number encountered." << std::endl;
 			return (1);
 		}
+
+		// Push the number into the vector
 		sequence.push_back(num);
-	}
-	// Check for duplicates before proceeding
-	if (hasDuplicates(sequence))
-	{
-		std::cout << "Error: Duplicate elements found." << std::endl;
-		return (1);
-	}
-	displaySequence(sequence, "Before");
 
-	// Make a copy to keep the original sequence
-	std::vector<int> sequenceCopy = sequence;
+		// Push the same number into the deque
+		sequenceDeque.push_back(num);
+	}
 
-	// Perform Ford-Johnson Merge-Insertion Sort
-	performSorting(sequenceCopy);
+	// Perform Ford-Johnson Merge-Insertion Sort on the vector
+	performSorting(sequence, sequenceDeque);
 
 	return (0);
 }

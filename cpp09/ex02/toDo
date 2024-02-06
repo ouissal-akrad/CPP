@@ -1,0 +1,9 @@
+1-stock all the args in a container vector or deque
+2-check the size of the container if its odd then u need to take the last element and pop it of course after saving it in a variable
+3-after that ur need to divide the elements to pairs
+4-now swap the pairs all the small elements needs to be in the right side
+5-after swapping the pairs u need to sort the main chain 
+6-now u can separate the pairs and stock them in a list 
+7-push the first element in the pend to the main chain 
+8-then you gonna work with binary insertion search algorithm used bu ford so hes using a combination of jacobsthal numbers to empty the secondElements container and push all elemnts to the firstElements,the combination starts from jacobsthal numbers because we already pushed the first number we dont need to start from 0 and 1 ,then start decrementing as the number you decrement is not a jacob number if its found move to the next
+9- theres no need for jaqcobsthal numbers witout using binary search algo use the binary search

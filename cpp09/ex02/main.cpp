@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/07 15:36:27 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/07 17:52:53 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	main(int argc, char **argv)
 		std::cout << "Error: No input sequence provided." << std::endl;
 		return (1);
 	}
-
 	// Create a vector to store the elements
 	std::vector<int> sequence;
 	std::deque<int> sequenceDeque; // Create a deque to store the same elements

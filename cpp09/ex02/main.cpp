@@ -6,12 +6,11 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/06 17:41:42 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/07 15:36:27 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <sstream>
 
 int	main(int argc, char **argv)
 {
@@ -37,7 +36,6 @@ int	main(int argc, char **argv)
 			std::cout << "Error: Negative number encountered." << std::endl;
 			return (1);
 		}
-
 		// Push the number into the vector
 		sequence.push_back(num);
 

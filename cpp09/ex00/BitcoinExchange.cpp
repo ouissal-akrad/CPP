@@ -6,11 +6,12 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/08 16:01:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/08 18:25:24 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <cstdio>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -65,7 +66,7 @@ bool BitcoinExchange::isValidDateFormat(const std::string &date)
 	std::string year = newDate.substr(0, 4);
 	std::string month = newDate.substr(5, 2);
 	std::string day = newDate.substr(8, 2);
-	//here
+	//here cpp11
 	if ((!std::all_of(year.begin(), year.end(), ::isdigit)) ||
 		(!std::all_of(month.begin(), month.end(), ::isdigit)) ||
 		(!std::all_of(day.begin(), day.end(), ::isdigit)))
@@ -124,7 +125,7 @@ void BitcoinExchange::isValidValue(const std::string &str)
 					'.') != newValue.end())
 				throw std::invalid_argument("too many decimal points");
 		}
-		// If there's a + or -
+		// If there's a + 
 		sign = newValue[0] == '+';
 		for (size_t i = sign ? 1 : 0; i < newValue.length(); i++)
 		{
@@ -136,7 +137,7 @@ void BitcoinExchange::isValidValue(const std::string &str)
 	}
 	catch (std::exception &e)
 	{
-		throw std::invalid_argument("not a digit => " + newValue);
+		std::cout << "Error: " << e.what() << std::endl;
 	}
 	if (value < 0)
 		throw std::invalid_argument("not a positive digit");
@@ -147,8 +148,8 @@ void BitcoinExchange::isValidValue(const std::string &str)
 void BitcoinExchange::check_lines(std::string line)
 {
 	size_t	pipe;
-	std::string	prevDate;
 
+	std::string prevDate;
 	pipe = line.find('|');
 	std::string suff;
 	std::string pref;
@@ -159,15 +160,20 @@ void BitcoinExchange::check_lines(std::string line)
 	}
 	pref = line.substr(0, pipe);
 	suff = line.substr(pipe + 1);
-	// std::cout << "pref ======> "<< pref << std::endl;
-	// std::cout << "suff ======> "<< suff << std::endl;
+	if (pref.empty() || suff.empty())
+	{
+		std::cout << "Error: Empty or null substring encountered." << std::endl;
+		return ;
+	}
+	// std::cout << "pref ======> " << pref << std::endl;
+	// std::cout << "suff ======> " << suff << std::endl;
 	if (!isValidDateFormat(pref))
 	{
 		std::cout << "Error: Invalid date" << std::endl;
 		exit(1);
 	}
 	isValidValue(suff);
-//here
+	//here
 }
 
 void BitcoinExchange::go(std::string info)

@@ -6,12 +6,13 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/07 17:52:53 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:38:53 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
+//ordotoxo
 int	main(int argc, char **argv)
 {
 	if (argc < 2)
@@ -19,31 +20,38 @@ int	main(int argc, char **argv)
 		std::cout << "Error: No input sequence provided." << std::endl;
 		return (1);
 	}
-	// Create a vector to store the elements
+
 	std::vector<int> sequence;
-	std::deque<int> sequenceDeque; // Create a deque to store the same elements
+	std::deque<int> sequenceDeque;
 
 	for (int i = 1; i < argc; ++i)
 	{
-		// Convert the argument to an integer
-		int num;
-		std::stringstream(argv[i]) >> num;
+		// Check if all characters in argv[i] are digits
+		bool allDigits = true;
+		for (char *p = argv[i]; *p != '\0'; ++p)
+		{
+			if (!std::isdigit(*p))
+			{
+				allDigits = false;
+				break ;
+			}
+		}
 
-		// Check for negative numbers
+		if (!allDigits)
+		{
+			std::cout << "Error: Non-numeric character encountered." << std::endl;
+			return (1);
+		}
+
+		int num = std::atoi(argv[i]);
 		if (num < 0)
 		{
 			std::cout << "Error: Negative number encountered." << std::endl;
 			return (1);
 		}
-		// Push the number into the vector
 		sequence.push_back(num);
-
-		// Push the same number into the deque
 		sequenceDeque.push_back(num);
 	}
-
-	// Perform Ford-Johnson Merge-Insertion Sort on the vector
 	performSorting(sequence, sequenceDeque);
-
 	return (0);
 }

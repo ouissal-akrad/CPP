@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/07 15:55:46 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/08 16:01:17 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,17 +166,8 @@ void BitcoinExchange::check_lines(std::string line)
 		std::cout << "Error: Invalid date" << std::endl;
 		exit(1);
 	}
-	isValidValue(pref);
-	// std::map<std::string, std::string>::iterator it;
-	// prevDate = pref;
-	// it = map.find(pref);
-	// while (it == map.end())
-	// {
-	// 	const std::string &currentDate = prevDate;
-	// 	// prevDate = findTheClosest(currentDate);
-	// 	it = map.find(prevDate);
-	// }
-	// std::cout << pref << " => " << suff << " = " << toDouble(it->second) * toDouble(suff) << std::endl;
+	isValidValue(suff);
+//here
 }
 
 void BitcoinExchange::go(std::string info)

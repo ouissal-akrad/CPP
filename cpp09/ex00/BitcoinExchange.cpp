@@ -6,12 +6,13 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/08 18:25:24 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 15:39:53 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <cstdio>
+#include <iostream>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -114,70 +115,93 @@ void BitcoinExchange::isValidValue(const std::string &str)
 	bool	sign;
 
 	std::string newValue = trimString(str);
-	// std::cout << newValue << std::endl;
-	try
+	// If there's more than one decimal point, throw an error
+	if (std::find(newValue.begin(), newValue.end(), '.') != newValue.end())
 	{
-		// If there's more than one decimal point, throw an error
-		if (std::find(newValue.begin(), newValue.end(), '.') != newValue.end())
-		{
-			decimalPoint = newValue.find('.');
-			if (std::find(newValue.begin() + decimalPoint + 1, newValue.end(),
-					'.') != newValue.end())
-				throw std::invalid_argument("too many decimal points");
-		}
-		// If there's a + 
-		sign = newValue[0] == '+';
-		for (size_t i = sign ? 1 : 0; i < newValue.length(); i++)
-		{
-			if (std::isdigit(newValue[i]) || newValue[i] == '.')
-				continue ;
-			throw std::invalid_argument("not a digit => " + newValue);
-		}
-		value = toDouble(newValue);
+		decimalPoint = newValue.find('.');
+		if (std::find(newValue.begin() + decimalPoint + 1, newValue.end(),
+				'.') != newValue.end())
+			throw std::invalid_argument("too many decimal points");
 	}
-	catch (std::exception &e)
+	// If there's a +
+	sign = newValue[0] == '+';
+	for (size_t i = sign ? 1 : 0; i < newValue.length(); i++)
 	{
-		std::cout << "Error: " << e.what() << std::endl;
+		if (std::isdigit(newValue[i]) || newValue[i] == '.')
+			continue ;
+		throw std::invalid_argument("not a digit => " + newValue);
 	}
+	value = toDouble(newValue);
 	if (value < 0)
 		throw std::invalid_argument("not a positive digit");
 	if (value > 1000.0)
 		throw std::invalid_argument("too large");
 }
 
-void BitcoinExchange::check_lines(std::string line)
+void BitcoinExchange::check_lines(std::string suff, std::string pref)
 {
-	size_t	pipe;
+	double	rate;
+	double	exchangeRate;
+	double	result;
 
-	std::string prevDate;
-	pipe = line.find('|');
-	std::string suff;
-	std::string pref;
-	if (pipe == std::string::npos)
+	std::ifstream inputFile("data.csv");
+	// Check if the file is empty
+	if (inputFile.peek() == std::ifstream::traits_type::eof())
 	{
-		std::cout << "Error: Bad input" << std::endl;
-		exit(1);
-	}
-	pref = line.substr(0, pipe);
-	suff = line.substr(pipe + 1);
-	if (pref.empty() || suff.empty())
-	{
-		std::cout << "Error: Empty or null substring encountered." << std::endl;
+		std::cout << "The data file is empty." << std::endl;
 		return ;
 	}
-	// std::cout << "pref ======> " << pref << std::endl;
-	// std::cout << "suff ======> " << suff << std::endl;
-	if (!isValidDateFormat(pref))
+	std::string line2;
+	std::map<std::string, double> exchangeRates;
+	while (std::getline(inputFile, line2))
 	{
-		std::cout << "Error: Invalid date" << std::endl;
-		exit(1);
+		std::istringstream iss(line2);
+		std::string date;
+		std::string rateStr;
+		if (std::getline(iss, date, ',') && std::getline(iss, rateStr))
+		{
+			std::istringstream(rateStr) >> rate;
+			exchangeRates[date] = rate;
+		}
+		else
+			std::cout << "Error parsing line: " << line2 << std::endl;
 	}
-	isValidValue(suff);
-	//here
+	std::map<std::string, double>::iterator it2 = exchangeRates.find(pref);
+	if (it2 != exchangeRates.end())
+	{
+		exchangeRate = it2->second;
+		result = std::atof(suff.c_str()) * exchangeRate;
+		std::cout << pref << "=>" << suff << " = " << result << std::endl;
+	}
+	else
+	{
+		std::map<std::string,
+			double>::iterator lower = exchangeRates.lower_bound(pref);
+		if (lower != exchangeRates.begin())
+		{
+			--lower;
+			exchangeRate = lower->second;
+			result = std::atof(suff.c_str()) * exchangeRate;
+			std::cout << pref << "=>" << suff << " = " << result << std::endl;
+		}
+		else
+			std::cout << "Error: No exchange rate found." << std::endl;
+	}
+}
+
+bool isWhitespaceOrEmpty(const std::string& str) {
+    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
+        if (!isspace(*it)) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void BitcoinExchange::go(std::string info)
 {
+		size_t pipe;
+
 	std::ifstream file(info);
 	std::string line;
 	if (!file.is_open())
@@ -196,8 +220,44 @@ void BitcoinExchange::go(std::string info)
 		std::cout << "Error: invalid format" << std::endl;
 		exit(1);
 	}
+	if (!file) {
+        std::cerr << "Error: Unable to open file." << std::endl;
+        return ;
+    }
 	while (getline(file, line))
-		check_lines(line);
+	{
+		std::string prevDate;
+		pipe = line.find('|');
+		std::string suff;
+		std::string pref;
+		if (pipe == std::string::npos)
+		{
+			std::cout << "Error: Bad input" << " => " << line << std::endl;
+			continue ;
+		}
+		pref = line.substr(0, pipe);
+		suff = line.substr(pipe + 1);
+		if (pref.empty() || suff.empty())
+		{
+			std::cout << "Error: Empty or null substring encountered." << std::endl;
+			return ;
+		}
+		if (!isValidDateFormat(pref))
+		{
+			std::cout << "Error: Invalid date" << std::endl;
+			continue;
+		}
+		try
+		{
+			isValidValue(suff);
+		}
+		catch (std::exception &e)
+		{
+			std::cout << "Error: " << e.what() << std::endl;
+			continue;
+		}
+		check_lines(suff, pref);
+	}
 }
 BitcoinExchange::~BitcoinExchange()
 {

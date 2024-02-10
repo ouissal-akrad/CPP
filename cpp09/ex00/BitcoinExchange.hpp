@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:14:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/07 15:50:34 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 14:34:08 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class BitcoinExchange
 	BitcoinExchange &operator=(const BitcoinExchange &other);
 	~BitcoinExchange();
 	void go(std::string info);
-	void check_lines(std::string line);
+	void check_lines(std::string suff, std::string pref);
 	bool isValidDateFormat(const std::string &date);
 	std::string trimString(const std::string &str);
 	void isValidValue(const std::string &str);

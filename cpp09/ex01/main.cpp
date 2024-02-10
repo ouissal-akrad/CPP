@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:45:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/08 18:42:01 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:34:09 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int main(int ac, char **av)
             if (isDigit(currentChar))
             {
                 num = currentChar - '0';
-            std::cout << num  << std::endl;
                 s.push(num);
             }
             else if (isOperator(currentChar))

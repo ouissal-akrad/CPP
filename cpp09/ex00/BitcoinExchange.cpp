@@ -6,13 +6,15 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/10 15:39:53 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:42:49 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <cstdio>
+#include <cstdlib>
 #include <iostream>
+#include <streambuf>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -91,8 +93,7 @@ bool BitcoinExchange::isValidDateFormat(const std::string &date)
 	if (monthInt == 2)
 	{
 		// Check for leap year
-		isLeap = ((yearInt % 4 == 0 && yearInt % 100 != 0) || yearInt
-				% 400 == 0);
+		isLeap = yearInt % 4 == 0;
 		if (dayInt > (isLeap ? 29 : 28))
 			return (false);
 	}
@@ -129,7 +130,7 @@ void BitcoinExchange::isValidValue(const std::string &str)
 	{
 		if (std::isdigit(newValue[i]) || newValue[i] == '.')
 			continue ;
-		throw std::invalid_argument("not a digit => " + newValue);
+		throw std::invalid_argument("not a digit or not a positive number => " + newValue);
 	}
 	value = toDouble(newValue);
 	if (value < 0)
@@ -149,7 +150,7 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 	if (inputFile.peek() == std::ifstream::traits_type::eof())
 	{
 		std::cout << "The data file is empty." << std::endl;
-		return ;
+		exit(1);
 	}
 	std::string line2;
 	std::map<std::string, double> exchangeRates;
@@ -240,7 +241,6 @@ void BitcoinExchange::go(std::string info)
 		if (pref.empty() || suff.empty())
 		{
 			std::cout << "Error: Empty or null substring encountered." << std::endl;
-			return ;
 		}
 		if (!isValidDateFormat(pref))
 		{

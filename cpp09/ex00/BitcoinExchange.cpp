@@ -6,22 +6,17 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/10 16:45:23 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 17:57:39 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
 
 BitcoinExchange::BitcoinExchange()
 {
 }
 BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
 {
-	if (this != &obj)
-		map = obj.map;
 	return (*this);
 }
 
@@ -129,7 +124,8 @@ void BitcoinExchange::isValidValue(const std::string &str)
 	{
 		if (std::isdigit(newValue[i]) || newValue[i] == '.')
 			continue ;
-		throw std::invalid_argument("not a digit or not a positive number => " + newValue);
+		throw std::invalid_argument("not a digit or not a positive number => "
+				+ newValue);
 	}
 	value = toDouble(newValue);
 	if (value < 0)
@@ -151,11 +147,11 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 		std::cout << "The data file is empty." << std::endl;
 		exit(1);
 	}
-	std::string line2;
+	std::string line;
 	std::map<std::string, double> exchangeRates;
-	while (std::getline(inputFile, line2))
+	while (std::getline(inputFile, line))
 	{
-		std::istringstream iss(line2);
+		std::istringstream iss(line);
 		std::string date;
 		std::string rateStr;
 		if (std::getline(iss, date, ',') && std::getline(iss, rateStr))
@@ -164,7 +160,7 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 			exchangeRates[date] = rate;
 		}
 		else
-			std::cout << "Error parsing line: " << line2 << std::endl;
+			std::cout << "Error parsing line: " << line << std::endl;
 	}
 	std::map<std::string, double>::iterator it2 = exchangeRates.find(pref);
 	if (it2 != exchangeRates.end())
@@ -176,7 +172,7 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 	else
 	{
 		std::map<std::string,
-			double>::iterator lower = exchangeRates.lower_bound(pref);
+					double>::iterator lower = exchangeRates.lower_bound(pref);
 		if (lower != exchangeRates.begin())
 		{
 			--lower;
@@ -189,18 +185,10 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 	}
 }
 
-bool isWhitespaceOrEmpty(const std::string& str) {
-    for (std::string::const_iterator it = str.begin(); it != str.end(); ++it) {
-        if (!isspace(*it)) {
-            return false;
-        }
-    }
-    return true;
-}
 
 void BitcoinExchange::go(std::string info)
 {
-		size_t pipe;
+	size_t	pipe;
 
 	std::ifstream file(info);
 	std::string line;
@@ -220,10 +208,11 @@ void BitcoinExchange::go(std::string info)
 		std::cout << "Error: invalid format" << std::endl;
 		exit(1);
 	}
-	if (!file) {
-        std::cerr << "Error: Unable to open file." << std::endl;
-        return ;
-    }
+	if (!file)
+	{
+		std::cerr << "Error: Unable to open file." << std::endl;
+		return ;
+	}
 	while (getline(file, line))
 	{
 		std::string prevDate;
@@ -232,7 +221,8 @@ void BitcoinExchange::go(std::string info)
 		std::string pref;
 		if (pipe == std::string::npos)
 		{
-			std::cout << "Error: Bad input" << " => " << line << std::endl;
+			std::cout << "Error: Bad input"
+						<< " => " << line << std::endl;
 			continue ;
 		}
 		pref = line.substr(0, pipe);
@@ -244,7 +234,7 @@ void BitcoinExchange::go(std::string info)
 		if (!isValidDateFormat(pref))
 		{
 			std::cout << "Error: Invalid date" << std::endl;
-			continue;
+			continue ;
 		}
 		try
 		{
@@ -253,7 +243,7 @@ void BitcoinExchange::go(std::string info)
 		catch (std::exception &e)
 		{
 			std::cout << "Error: " << e.what() << std::endl;
-			continue;
+			continue ;
 		}
 		check_lines(suff, pref);
 	}

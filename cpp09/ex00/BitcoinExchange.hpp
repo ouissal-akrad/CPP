@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:14:02 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/10 14:34:08 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 17:57:52 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,15 @@
 # include <cstddef>
 # include <cstdlib>
 # include <fstream>
-# include <iostream>
 # include <map>
 # include <sstream>
 # include <stdexcept>
 # include <string.h>
+#include <cstdio>
+#include <iostream>
+
 class BitcoinExchange
 {
-  private:
-	std::map<std::string, std::string> map;
-
   public:
 	BitcoinExchange();
 	BitcoinExchange(const BitcoinExchange &copy);

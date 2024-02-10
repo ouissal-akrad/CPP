@@ -6,13 +6,12 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/08 16:38:53 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:44:25 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-//ordotoxo
 int	main(int argc, char **argv)
 {
 	if (argc < 2)

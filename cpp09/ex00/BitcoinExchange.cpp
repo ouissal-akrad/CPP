@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/10 16:42:49 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/10 16:45:23 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include <streambuf>
 
 BitcoinExchange::BitcoinExchange()
 {

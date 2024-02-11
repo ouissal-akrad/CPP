@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/11 12:42:13 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/11 22:54:17 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ std::string trimString(const std::string &str)
 			break ;
 		}
 	}
-	// Find last non-space character
 	for (std::string::size_type i = str.length() - 1; i > 0; --i)
 	{
 		if (str[i] != ' ')
@@ -107,7 +106,6 @@ void	isValidValue(const std::string &str)
 	size_t	startIndex;
 
 	std::string newValue = trimString(str);
-	// If there's more than one decimal point, throw an error
 	if (std::find(newValue.begin(), newValue.end(), '.') != newValue.end())
 	{
 		decimalPoint = newValue.find('.');
@@ -115,7 +113,6 @@ void	isValidValue(const std::string &str)
 				'.') != newValue.end())
 			throw std::invalid_argument("too many decimal points");
 	}
-	// If there's a +
 	sign = newValue[0] == '+';
 	startIndex = sign ? 1 : 0;
 	for (size_t i = startIndex; i < newValue.length(); i++)
@@ -139,7 +136,6 @@ void	check_lines(std::string suff, std::string pref)
 	double	result;
 
 	std::ifstream inputFile("data.csv");
-	// Check if the file is empty
 	if (inputFile.peek() == std::ifstream::traits_type::eof())
 	{
 		std::cout << "The data file is empty." << std::endl;

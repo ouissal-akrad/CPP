@@ -6,26 +6,14 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/10 17:57:39 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/11 10:13:12 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange()
-{
-}
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &obj)
-{
-	return (*this);
-}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &copy)
-{
-	*this = copy;
-}
-
-std::string BitcoinExchange::trimString(const std::string &str)
+std::string trimString(const std::string &str)
 {
 	std::size_t firstNonSpace;
 	std::size_t lastNonSpace;
@@ -51,7 +39,7 @@ std::string BitcoinExchange::trimString(const std::string &str)
 	return (str.substr(firstNonSpace, lastNonSpace - firstNonSpace + 1));
 }
 
-bool BitcoinExchange::isValidDateFormat(const std::string &date)
+bool isValidDateFormat(const std::string &date)
 {
 	bool	isLeap;
 
@@ -94,7 +82,7 @@ bool BitcoinExchange::isValidDateFormat(const std::string &date)
 	return (true);
 }
 
-double BitcoinExchange::toDouble(const std::string &str)
+double toDouble(const std::string &str)
 {
 	double	value;
 
@@ -103,7 +91,7 @@ double BitcoinExchange::toDouble(const std::string &str)
 	return (value);
 }
 
-void BitcoinExchange::isValidValue(const std::string &str)
+void isValidValue(const std::string &str)
 {
 	double	value;
 	size_t	decimalPoint;
@@ -134,7 +122,7 @@ void BitcoinExchange::isValidValue(const std::string &str)
 		throw std::invalid_argument("too large");
 }
 
-void BitcoinExchange::check_lines(std::string suff, std::string pref)
+void check_lines(std::string suff, std::string pref)
 {
 	double	rate;
 	double	exchangeRate;
@@ -186,7 +174,7 @@ void BitcoinExchange::check_lines(std::string suff, std::string pref)
 }
 
 
-void BitcoinExchange::go(std::string info)
+void go(std::string info)
 {
 	size_t	pipe;
 
@@ -211,7 +199,7 @@ void BitcoinExchange::go(std::string info)
 	if (!file)
 	{
 		std::cerr << "Error: Unable to open file." << std::endl;
-		return ;
+		exit(1);
 	}
 	while (getline(file, line))
 	{
@@ -247,7 +235,4 @@ void BitcoinExchange::go(std::string info)
 		}
 		check_lines(suff, pref);
 	}
-}
-BitcoinExchange::~BitcoinExchange()
-{
 }

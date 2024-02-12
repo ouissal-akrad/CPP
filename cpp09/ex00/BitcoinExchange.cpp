@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/11 22:54:17 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/12 15:19:41 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,9 @@ void	check_lines(std::string suff, std::string pref)
 	double	rate;
 	double	exchangeRate;
 	double	result;
+	
+	suff = trimString(suff);
+	pref = trimString(pref);
 
 	std::ifstream inputFile("data.csv");
 	if (inputFile.peek() == std::ifstream::traits_type::eof())
@@ -162,7 +165,7 @@ void	check_lines(std::string suff, std::string pref)
 	{
 		exchangeRate = it->second;
 		result = std::atof(suff.c_str()) * exchangeRate;
-		std::cout << pref << "=>" << suff << " = " << result << std::endl;
+		std::cout << pref << " => " << suff << " = " << result << std::endl;
 	}
 	else
 	{
@@ -172,7 +175,7 @@ void	check_lines(std::string suff, std::string pref)
 			--lower;
 			exchangeRate = lower->second;
 			result = std::atof(suff.c_str()) * exchangeRate;
-			std::cout << pref << "=>" << suff << " = " << result << std::endl;
+			std::cout << pref << " => " << suff << " = " << result << std::endl;
 		}
 		else
 			std::cout << "Error: No exchange rate found." << std::endl;

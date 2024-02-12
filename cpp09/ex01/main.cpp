@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/31 16:45:16 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/11 22:57:38 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/12 17:15:18 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(int ac, char **av)
         while (j < str.length())
         {
             char currentChar = str[j];
-            if (isDigit(currentChar))
+            if (isdigit(currentChar) && !isdigit(str[j + 1]))
             {
                 num = currentChar - '0';
                 s.push(num);

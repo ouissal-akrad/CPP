@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:33:15 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/12 17:13:37 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/13 18:56:55 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ long int	getjcob(int i)
 	if (i == 0)
 		return (0);
 	if (i == 1)
-		return (1);
+		return (1);  
 	return (getjcob(i - 1) + (2 * getjcob(i - 2)));
 }
 
@@ -113,8 +113,6 @@ void	fordJohnsonMergeInsertionSortVector(std::vector<int> &c, int start,
 		firstElements.insert(firstElements.begin(), secondElements.front());
 		secondElements.erase(secondElements.begin());
 	}
-	if (lastElement != -1)
-		secondElements.push_back(lastElement);
 	std::vector<long int> jbNumbers;
 	for (int i = 0; i >= 0; i++)
 	{
@@ -138,6 +136,12 @@ void	fordJohnsonMergeInsertionSortVector(std::vector<int> &c, int start,
 			jacobVal--;
 		}
 		breakVal = jbNumbers[i];
+	}
+	if(lastElement != -1)
+	{
+		vit = std::lower_bound(firstElements.begin(),
+						firstElements.end(),lastElement);
+		firstElements.insert(vit, lastElement);
 	}
 	sortedSequence = firstElements;
 }
@@ -171,7 +175,7 @@ void	fordJohnsonMergeInsertionSortDeque(std::deque<int> &c, int start,
 		std::pair<int, int> pair = std::make_pair(c[i], c[i + 1]);
 		vect.push_back(pair);
 	}
-	sortPairs(vect, 0, vect.size() - 1);
+	sortPairs(vect, 0, vect.size() - 1); 
 	std::vector<int> firstElements;
 	std::vector<int> secondElements;
 	for (size_t i = 0; i < vect.size(); ++i)
@@ -184,8 +188,6 @@ void	fordJohnsonMergeInsertionSortDeque(std::deque<int> &c, int start,
 		firstElements.insert(firstElements.begin(), secondElements.front());
 		secondElements.erase(secondElements.begin());
 	}
-	if (lastElement != -1)
-		secondElements.push_back(lastElement);
 	std::vector<long int> jbNumbers;
 	for (int i = 0; i >= 0; i++)
 	{
@@ -209,6 +211,12 @@ void	fordJohnsonMergeInsertionSortDeque(std::deque<int> &c, int start,
 			jacobVal--;
 		}
 		breakVal = jbNumbers[i];
+	}
+	if(lastElement != -1)
+	{
+		vit = std::lower_bound(firstElements.begin(),
+						firstElements.end(),lastElement);
+		firstElements.insert(vit, lastElement);
 	}
 	sortedSequence = firstElements;
 }
@@ -234,13 +242,10 @@ void	performSorting(std::vector<int> sequence, std::deque<int> sequenceDeque)
 	displaySequence(sortedSequence, "After");
 	endVector = clock();
 	std::cout << "Time to process a range of " << sortedSequence.size() << " element "
-				<< "with vector " << std::setprecision(5) << double(endVector
-						- startVector) / 1000000 << " us." << std::endl;
+				<< "with vector " << std::setprecision(5) << double(endVector - startVector) / 1000000 << " us." << std::endl;
 	startDeque = clock();
 	fordJohnsonMergeInsertionSortDeque(sequenceDeque, 0, sequenceDeque.size()
 			- 1, sortedSequence);
 	endDeque = clock();
-	std::cout << "Time to process a range of " << sortedSequence.size() << " element "
-				<< "with deque " << std::setprecision(5) << double(endDeque
-						- startDeque) / 1000000 << " us." << std::endl;
+	std::cout << "Time to process a range of " << sortedSequence.size() << " element " 	<< "with deque " << std::setprecision(5) << double(endDeque - startDeque) / 1000000 << " us." << std::endl;
 }

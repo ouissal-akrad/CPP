@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:36:18 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/11 22:49:01 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/14 21:20:30 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 
 	for (int i = 1; i < argc; ++i)
 	{
-		bool allDigits = true;
+		bool allDigits = argv[i][0]; //check
 		for (char *p = argv[i]; *p != '\0'; ++p)
 		{
 			if (!std::isdigit(*p))

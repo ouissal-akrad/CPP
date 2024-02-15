@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 16:33:15 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/13 18:56:55 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/15 21:18:16 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,19 @@ long int	getjcob(int i)
 	return (getjcob(i - 1) + (2 * getjcob(i - 2)));
 }
 
-void	sortPairs(std::vector<std::pair<int, int> > &arr, int left, int right)
+void sortPairs(std::vector<std::pair<int, int> >& arr, int left, int right) 
 {
-	int	i;
-	int	j;
+    if (left >= right)
+        return;
 
-	if (left < right)
+    for (int i = left; i < right; i++) 
 	{
-		std::pair<int, int> pivot = arr[left + (right - left) / 2];
-		i = left;
-		j = right;
-		while (i <= j)
-		{
-			while (comparePairs(arr[i], pivot))
-				i++;
-			while (comparePairs(pivot, arr[j]))
-				j--;
-			if (i <= j)
-			{
-				std::swap(arr[i], arr[j]);
-				i++;
-				j--;
-			}
-		}
-		sortPairs(arr, left, j);
-		sortPairs(arr, i, right);
-	}
+        if (comparePairs(arr[i + 1], arr[i])) 
+            std::swap(arr[i], arr[i + 1]);
+    }
+    sortPairs(arr, left, right - 1);
 }
+
 
 void	fordJohnsonMergeInsertionSortVector(std::vector<int> &c, int start,
 		int end, std::vector<int> &sortedSequence)
@@ -232,7 +218,7 @@ void	performSorting(std::vector<int> sequence, std::deque<int> sequenceDeque)
 	std::vector<int> sortedSequence;
 	if (sequence.size() == 1 || sequenceDeque.size() == 1)
 	{
-		std::cout << "Invalid elements" << std::endl;
+		std::cout << "We can't accept one digit" << std::endl;
 		return ;
 	}
 	startVector = clock();

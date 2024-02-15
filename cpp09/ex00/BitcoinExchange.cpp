@@ -6,7 +6,7 @@
 /*   By: ouakrad <ouakrad@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:13:59 by ouakrad           #+#    #+#             */
-/*   Updated: 2024/02/12 15:19:41 by ouakrad          ###   ########.fr       */
+/*   Updated: 2024/02/15 23:19:02 by ouakrad          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 std::string trimString(const std::string &str)
 {
-	std::size_t firstNonSpace;
-	std::size_t lastNonSpace;
+	std::size_t firstNonSpace = 0;
+	std::size_t lastNonSpace = 0;
 	for (std::string::size_type i = 0; i < str.length(); ++i)
 	{
 		if (str[i] != ' ')
@@ -32,8 +32,6 @@ std::string trimString(const std::string &str)
 			break ;
 		}
 	}
-	if (firstNonSpace == std::string::npos || lastNonSpace == std::string::npos)
-		return ("");
 	return (str.substr(firstNonSpace, lastNonSpace - firstNonSpace + 1));
 }
 
